@@ -1,3 +1,7 @@
 <div>
-  id {{arena?.getId()}} name {{arena?.getName()}}
+  id {{arena?.getId()}} name
+  <input  type="text"  value="{{arena?.getName()}}"[(ngModel)]="updateArenaName">
+  <button (click)="editArena()">
+    Update
+  </button>
 </div>

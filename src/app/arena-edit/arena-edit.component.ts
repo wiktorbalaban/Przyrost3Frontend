@@ -16,6 +16,8 @@ export class ArenaEditComponent implements OnInit {
   id: number;
   private sub: any;
   arena: Arena;
+  updateArena: Arena;
+  updateArenaName: String;
 
   constructor(private arenaService: ArenaService, private route: ActivatedRoute) {
   }
@@ -24,16 +26,23 @@ export class ArenaEditComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
     });
-    // this.arenaService.getById(this.id).subscribe(res => {
-    //   this.arena = res.map(el => new Arena(el));
-    // });
     this.arenaService.getById(this.id).subscribe(
       res => {
-        console.log(res);
         this.arena = new Arena(res);
-        console.log(this.arena.getName());
       }
     );
+  }
+
+  editArena() {
+    if (this.updateArenaName !== undefined) {
+      this.updateArena = new Arena();
+      this.updateArena.setId(this.arena.getId());
+      this.updateArena.setName(this.updateArenaName);
+      this.arenaService.edit(this.updateArena);
+      console.log('updateArenaName: ' + this.updateArenaName);
+    } else {
+      window.alert('Nazwa areny jest błędna');
+    }
   }
 
 }

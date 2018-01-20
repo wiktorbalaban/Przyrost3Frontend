@@ -14,4 +14,13 @@ export class Arena {
   getName(): String {
     return this.name;
   }
+
+  setId(id: number) {
+    this.id = id;
+  }
+
+  setName(name: String) {
+    this.name = name;
+  }
+
 }
