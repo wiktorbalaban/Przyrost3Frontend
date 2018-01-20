@@ -25,4 +25,13 @@ export class ArenaService {
     });
   }
 
+  edit(arena: Arena) {
+    const data = {
+      name: name
+    };
+    return this.http.put(`${apiUrl}/arena`, arena).subscribe(res => {
+      console.log(res);
+    });
+  }
+
 }

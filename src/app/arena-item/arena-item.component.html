@@ -1,5 +1,6 @@
 <div >
   <div >
     {{ arena.getName() }}
+    <a [routerLink]="['/arena-edit', arena.id]" routerLinkActive="active">Edit</a>
   </div>
 </div>

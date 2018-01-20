@@ -10,17 +10,20 @@ import {ArenaListComponent} from './arena-list/arena-list.component';
 import {ArenaItemComponent} from './arena-item/arena-item.component';
 import {ArenaService} from './service/arena.service';
 import {ArenaAddComponent} from './arena-add/arena-add.component';
+import {ArenaEditComponent} from './arena-edit/arena-edit.component';
 
 const ROUTES: Routes = [
   // { path: '', redirectTo: 'arena-list', pathMatch: 'full' },
   {path: 'arena-list', component: ArenaListComponent},
-  {path: 'arena-add', component: ArenaAddComponent}
+  {path: 'arena-add', component: ArenaAddComponent},
+  {path: 'arena-edit/:id', component: ArenaEditComponent}
 ];
 
 
 @NgModule({
   declarations: [
-    AppComponent, ArenaListComponent, ArenaItemComponent, ArenaAddComponent
+    AppComponent, ArenaListComponent, ArenaItemComponent, ArenaAddComponent,
+    ArenaEditComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(ROUTES)
