@@ -3,7 +3,7 @@ export class Arena {
   private name: String;
 
   constructor(obj?: any) {
-    this.id = (obj && obj.id) || Math.floor(Math.random() * 1000);
+    this.id = (obj && obj.id) || 0;
     this.name = (obj && obj.name) || '';
   }
 
