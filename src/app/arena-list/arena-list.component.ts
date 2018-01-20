@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ArenaService } from '../service/arena.service';
-import { Arena } from '../models/arena';
+import {Component, OnInit} from '@angular/core';
+import {ArenaService} from '../service/arena.service';
+import {Arena} from '../models/arena';
 
 @Component({
   selector: 'app-arena-list',
@@ -10,7 +10,8 @@ import { Arena } from '../models/arena';
 export class ArenaListComponent implements OnInit {
   arenas: Arena[];
 
-  constructor(private service: ArenaService) {}
+  constructor(private service: ArenaService) {
+  }
 
   ngOnInit() {
     this.getArenas();
@@ -21,4 +22,10 @@ export class ArenaListComponent implements OnInit {
       this.arenas = res.map(el => new Arena(el));
     });
   }
+
+  public removeArena(id: number) {
+    this.arenas = this.arenas.filter(el => el.getId() !== id);
+    console.log(id, 'remove');
+  }
+
 }

@@ -1,6 +1,9 @@
-<div >
-  <div >
-    {{ arena.name }}
-    <a [routerLink]="['/arena-edit', arena.id]" routerLinkActive="active">Edit</a>
+<div>
+  <div>
+    {{ arena.getName() }}
+    <a [routerLink]="['/arena-edit', arena.getId()]" routerLinkActive="active">Edit</a>
+    <button (click)="deleteArena(arena.getId())">
+      Remove
+    </button>
   </div>
 </div>

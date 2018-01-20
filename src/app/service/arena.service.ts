@@ -5,6 +5,7 @@ import {Arena} from '../models/arena';
 
 const apiUrl: String = 'http://localhost:8080/api';
 
+
 @Injectable()
 export class ArenaService {
 
@@ -33,6 +34,12 @@ export class ArenaService {
     return this.http.put(`${apiUrl}/arena`, arena).subscribe(res => {
       console.log(res);
     });
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${apiUrl}/arena/${id}`).subscribe(res => {
+      console.log(res);
+    });;
   }
 
 }

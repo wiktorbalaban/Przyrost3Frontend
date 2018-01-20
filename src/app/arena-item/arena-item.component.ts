@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Arena } from '../models/arena';
-import { ArenaService } from '../service/arena.service';
+import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import {Arena} from '../models/arena';
+import {ArenaService} from '../service/arena.service';
 
 @Component({
   selector: 'app-arena-item',
@@ -9,12 +9,21 @@ import { ArenaService } from '../service/arena.service';
 })
 export class ArenaItemComponent implements OnInit {
   @Input() arena: Arena;
-  @Output() removeItem: EventEmitter<Arena> = new EventEmitter();
-  constructor(private arenaService: ArenaService) {}
+  @Output() removeItem: EventEmitter<number> = new EventEmitter();
 
-  ngOnInit() {}
+  constructor(private arenaService: ArenaService) {
+  }
 
-  remove() {
-    this.removeItem.emit(this.arena);
+  ngOnInit() {
+  }
+
+  remove(id: number) {
+    this.removeItem.emit(id);
+  }
+
+  deleteArena(id: number) {
+    this.arenaService.delete(id);
+    this.remove(id);
+    console.log('deleteArena');
   }
 }
