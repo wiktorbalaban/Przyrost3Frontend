@@ -11,7 +11,7 @@ import {ArenaItemComponent} from './arena-item/arena-item.component';
 import {ArenaService} from './service/arena.service';
 
 const ROUTES: Routes = [
-  { path: '', redirectTo: 'arena-list', pathMatch: 'full' },
+  // { path: '', redirectTo: 'arena-list', pathMatch: 'full' },
   { path: 'arena-list', component: ArenaListComponent }
 ];
 

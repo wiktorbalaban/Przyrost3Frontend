@@ -1,9 +1,23 @@
+<!--<section>-->
+<!--<div style="text-align:center">-->
+
+
+<!--<h1>-->
+<!--Welcome to {{ title }}!-->
+<!--</h1>-->
+  <!--<a routerLink="/arena-list" routerLinkActive="active">Arena List</a>-->
+<!--</div>-->
+  <!--<div><router-outlet></router-outlet></div>-->
+<!--</section>-->
 <section>
-<div style="text-align:center">
-<h1>
-Welcome to {{ title }}!
-</h1>
-  <a routerLink="/arena-list" routerLinkActive="active">Arena List</a>
-</div>
+  <header>
+    <nav>
+      <div class="menu-item">Arena</div>
+      <div class="dropdown">
+        <a routerLink="/arena-list" routerLinkActive="active">Arena List</a>
+      </div>
+    </nav>
+  </header>
   <router-outlet></router-outlet>
 </section>
+

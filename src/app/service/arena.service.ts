@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Arena } from '../models/arena';
 
-const apiUrl: String = 'localhost:8080/api';
+const apiUrl: String = 'http://localhost:8080/api';
 
 @Injectable()
 export class ArenaService {
