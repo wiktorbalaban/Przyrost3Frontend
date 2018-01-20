@@ -15,6 +15,10 @@ export class ArenaService {
     return this.http.get(`${apiUrl}/arenas`);
   }
 
+  getById(id: number): Observable<any> {
+    return this.http.get(`${apiUrl}/arena/${id}`);
+  }
+
   createNew(name: String) {
     const data = {
       name: name
@@ -26,9 +30,6 @@ export class ArenaService {
   }
 
   edit(arena: Arena) {
-    const data = {
-      name: name
-    };
     return this.http.put(`${apiUrl}/arena`, arena).subscribe(res => {
       console.log(res);
     });
