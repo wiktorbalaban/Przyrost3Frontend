@@ -41,7 +41,7 @@ export class NicknameListPagedComponent implements OnInit {
 
   public removeNicknamePaged(id: number) {
     this.nicknamesPaged = this.nicknamesPaged.filter(el => el.getId() !== id);
-    console.log(id, 'remove nickname');
+    console.log(id, 'remove Nickname');
   }
 
 }

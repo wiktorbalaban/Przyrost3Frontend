@@ -20,6 +20,13 @@ import {ArenaListPagedComponent} from './components/arena/arena-list-paged/arena
 import {ArenaSearchComponent} from './components/arena/arena-search/arena-search.component';
 import {NicknameSearchComponent} from './components/nickname/nickname-search/nickname-search.component';
 import {NicknameListPagedComponent} from './components/nickname/nickname-list-paged/nickname-list-paged.component';
+import {WifeSearchComponent} from './components/wife/wife-search/wife-search.component';
+import {WifeListPagedComponent} from './components/wife/wife-list-paged/wife-list-paged.component';
+import {WifeListComponent} from './components/wife/wife-list/wife-list.component';
+import {WifeAddComponent} from './components/wife/wife-add/wife-add.component';
+import {WifeEditComponent} from './components/wife/wife-edit/wife-edit.component';
+import {WifeItemComponent} from './components/wife/wife-item/wife-item.component';
+import {WifeService} from './service/wife.service';
 
 const ROUTES: Routes = [
   // { path: '', redirectTo: 'nickname-list', pathMatch: 'full' },
@@ -32,7 +39,12 @@ const ROUTES: Routes = [
   {path: 'nickname-list-paged', component: NicknameListPagedComponent},
   {path: 'nickname-list', component: NicknameListComponent},
   {path: 'nickname-add', component: NicknameAddComponent},
-  {path: 'nickname-edit/:id', component: NicknameEditComponent}
+  {path: 'nickname-edit/:id', component: NicknameEditComponent},
+  {path: 'wife-search', component: WifeSearchComponent},
+  {path: 'wife-list-paged', component: WifeListPagedComponent},
+  {path: 'wife-list', component: WifeListComponent},
+  {path: 'wife-add', component: WifeAddComponent},
+  {path: 'wife-edit/:id', component: WifeEditComponent}
 ];
 
 
@@ -41,12 +53,13 @@ const ROUTES: Routes = [
     AppComponent,
     ArenaListComponent, ArenaItemComponent, ArenaAddComponent, ArenaEditComponent, ArenaListPagedComponent, ArenaSearchComponent,
     NicknameItemComponent, NicknameListComponent, NicknameEditComponent, NicknameAddComponent, NicknameListPagedComponent,
-    NicknameSearchComponent
+    NicknameSearchComponent,
+    WifeItemComponent, WifeListComponent, WifeEditComponent, WifeAddComponent, WifeListPagedComponent, WifeSearchComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(ROUTES)
   ],
-  providers: [ArenaService, NicknameService],
+  providers: [ArenaService, NicknameService, WifeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -3,6 +3,7 @@
     <nav>
       <div class="menu-item" (click)="isArenaVisible=switchValue(isArenaVisible)">Arena</div>
       <div class="menu-item" (click)="isNicknameVisible=switchValue(isNicknameVisible)">Nickname</div>
+      <div class="menu-item" (click)="isWifeVisible=switchValue(isWifeVisible)">Wife</div>
     </nav>
     <div class="dropdown" *ngIf="isArenaVisible">
       Arena:
@@ -17,6 +18,13 @@
       <a routerLink="/nickname-search" routerLinkActive="active">Search</a>
       <a routerLink="/nickname-list" routerLinkActive="active">List</a>
       <a routerLink="/nickname-add" routerLinkActive="active">Add</a>
+    </div>
+    <div class="dropdown" *ngIf="isWifeVisible">
+      Wife:
+      <a routerLink="/wife-list-paged" routerLinkActive="active">List paged</a>
+      <a routerLink="/wife-search" routerLinkActive="active">Search</a>
+      <a routerLink="/wife-list" routerLinkActive="active">List</a>
+      <a routerLink="/wife-add" routerLinkActive="active">Add</a>
     </div>
   </header>
   <router-outlet></router-outlet>

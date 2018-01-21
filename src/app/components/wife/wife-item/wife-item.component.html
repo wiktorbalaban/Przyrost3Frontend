@@ -1,0 +1,17 @@
+<div>
+  <table>
+    <tr>
+      <td>
+        {{ wife.getName() }}
+      </td>
+      <td>
+        <a [routerLink]="['/wife-edit', wife.getId()]" routerLinkActive="active">Edit</a>
+      </td>
+      <td>
+        <button (click)="deleteWife(wife.getId())">
+          Remove
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
