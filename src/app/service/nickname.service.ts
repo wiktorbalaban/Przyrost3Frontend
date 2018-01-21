@@ -16,6 +16,14 @@ export class NicknameService {
     return this.http.get(`${apiUrl}/nicknames`);
   }
 
+  getAllPaged(page: number, size: number): Observable<any> {
+    return this.http.get(`${apiUrl}/nicknames/${page}?size=${size}`);
+  }
+
+  getByName(searchPhrase: String): Observable<any> {
+    return this.http.get(`${apiUrl}/nicknames_by_name?name=${searchPhrase}`);
+  }
+
   getById(id: number): Observable<any> {
     return this.http.get(`${apiUrl}/nickname/${id}`);
   }

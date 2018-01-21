@@ -1,0 +1,9 @@
+<div>
+  <input type="text" [(ngModel)]="searchPhrase">
+  <button (click)="searchNickname()">
+    Search
+  </button>
+  <app-nickname-item *ngFor="let nickname_item of searchedNicknames" [nickname]="nickname_item"
+                  (removeItem)="removeSearchedNickname($event)">
+  </app-nickname-item>
+</div>

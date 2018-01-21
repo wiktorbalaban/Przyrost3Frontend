@@ -1,0 +1,13 @@
+<div>
+  size
+  <input type="text" [(ngModel)]="size">
+  <app-nickname-item *ngFor="let nickname_item of nicknamesPaged" [nickname]="nickname_item" (removeNickname)="removeNicknamePaged($event)">
+  </app-nickname-item>
+  page
+  <input type="text" [(ngModel)]="page">
+  z {{totalPages}}
+  <br>
+  <button (click)="getNicknamesPaged()">
+    Go
+  </button>
+</div>

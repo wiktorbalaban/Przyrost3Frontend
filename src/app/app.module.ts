@@ -18,6 +18,8 @@ import {NicknameItemComponent} from './components/nickname/nickname-item/nicknam
 import {NicknameService} from './service/nickname.service';
 import {ArenaListPagedComponent} from './components/arena/arena-list-paged/arena-list-paged.component';
 import {ArenaSearchComponent} from './components/arena/arena-search/arena-search.component';
+import {NicknameSearchComponent} from './components/nickname/nickname-search/nickname-search.component';
+import {NicknameListPagedComponent} from './components/nickname/nickname-list-paged/nickname-list-paged.component';
 
 const ROUTES: Routes = [
   // { path: '', redirectTo: 'nickname-list', pathMatch: 'full' },
@@ -26,6 +28,8 @@ const ROUTES: Routes = [
   {path: 'arena-list-paged', component: ArenaListPagedComponent},
   {path: 'arena-add', component: ArenaAddComponent},
   {path: 'arena-edit/:id', component: ArenaEditComponent},
+  {path: 'nickname-search', component: NicknameSearchComponent},
+  {path: 'nickname-list-paged', component: NicknameListPagedComponent},
   {path: 'nickname-list', component: NicknameListComponent},
   {path: 'nickname-add', component: NicknameAddComponent},
   {path: 'nickname-edit/:id', component: NicknameEditComponent}
@@ -36,7 +40,8 @@ const ROUTES: Routes = [
   declarations: [
     AppComponent,
     ArenaListComponent, ArenaItemComponent, ArenaAddComponent, ArenaEditComponent, ArenaListPagedComponent, ArenaSearchComponent,
-    NicknameItemComponent, NicknameListComponent, NicknameEditComponent, NicknameAddComponent
+    NicknameItemComponent, NicknameListComponent, NicknameEditComponent, NicknameAddComponent, NicknameListPagedComponent,
+    NicknameSearchComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(ROUTES)
