@@ -20,6 +20,10 @@ export class ArenaService {
     return this.http.get(`${apiUrl}/arenas/${page}?size=${size}`);
   }
 
+  getByName(searchPhrase: String): Observable<any> {
+    return this.http.get(`${apiUrl}/arenas_by_name?name=${searchPhrase}`);
+  }
+
   getById(id: number): Observable<any> {
     return this.http.get(`${apiUrl}/arena/${id}`);
   }

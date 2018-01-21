@@ -6,9 +6,10 @@
     </nav>
     <div class="dropdown" *ngIf="isArenaVisible">
       Arena:
+      <a routerLink="/arena-list-paged" routerLinkActive="active">List paged</a>
+      <a routerLink="/arena-search" routerLinkActive="active">Search</a>
       <a routerLink="/arena-list" routerLinkActive="active">List</a>
       <a routerLink="/arena-add" routerLinkActive="active">Add</a>
-      <a routerLink="/arena-list-paged" routerLinkActive="active">List paged</a>
     </div>
     <div class="dropdown" *ngIf="isNicknameVisible">
       Nickname:

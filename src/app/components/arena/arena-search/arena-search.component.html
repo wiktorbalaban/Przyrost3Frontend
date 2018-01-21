@@ -1,0 +1,9 @@
+<div>
+  <input type="text" [(ngModel)]="searchPhrase">
+  <button (click)="searchArena()">
+    Search
+  </button>
+  <app-arena-item *ngFor="let arena_item of searchedArenas" [arena]="arena_item"
+                  (removeItem)="removeSearchedArena($event)">
+  </app-arena-item>
+</div>
