@@ -1,0 +1,5 @@
+<div>
+  <app-nickname-item *ngFor="let nickname_item of nicknames" [nickname]="nickname_item"
+                  (removeNickname)="removeNickname($event)">
+  </app-nickname-item>
+</div>

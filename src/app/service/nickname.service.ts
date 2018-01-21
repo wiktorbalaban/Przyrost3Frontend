@@ -1,43 +1,43 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {Arena} from '../models/arena';
+import {Nickname} from '../models/nickname';
 
 const apiUrl: String = 'http://localhost:8080/api';
 
 
 @Injectable()
-export class ArenaService {
+export class NicknameService {
 
   constructor(private http: HttpClient) {
   }
 
   getAll(): Observable<any> {
-    return this.http.get(`${apiUrl}/arenas`);
+    return this.http.get(`${apiUrl}/nicknames`);
   }
 
   getById(id: number): Observable<any> {
-    return this.http.get(`${apiUrl}/arena/${id}`);
+    return this.http.get(`${apiUrl}/nickname/${id}`);
   }
 
   createNew(name: String) {
     const data = {
       name: name
     };
-    const obj = new Arena(data);
-    return this.http.post(`${apiUrl}/arena`, obj).subscribe(res => {
+    const obj = new Nickname(data);
+    return this.http.post(`${apiUrl}/nickname`, obj).subscribe(res => {
       console.log(res);
     });
   }
 
-  edit(obj: Arena) {
-    return this.http.put(`${apiUrl}/arena`, obj).subscribe(res => {
+  edit(obj: Nickname) {
+    return this.http.put(`${apiUrl}/nickname`, obj).subscribe(res => {
       console.log(res);
     });
   }
 
   delete(id: number) {
-    return this.http.delete(`${apiUrl}/arena/${id}`).subscribe(res => {
+    return this.http.delete(`${apiUrl}/nickname/${id}`).subscribe(res => {
       console.log(res);
     });
   }

@@ -25,7 +25,7 @@ export class ArenaListComponent implements OnInit {
 
   public removeArena(id: number) {
     this.arenas = this.arenas.filter(el => el.getId() !== id);
-    console.log(id, 'remove');
+    console.log(id, 'remove arena');
   }
 
 }

@@ -1,0 +1,7 @@
+<div>
+  id {{nickname?.getId()}} name
+  <input  type="text"  value="{{nickname?.getName()}}"[(ngModel)]="updateNicknameName">
+  <button (click)="editNickname()">
+    Update
+  </button>
+</div>

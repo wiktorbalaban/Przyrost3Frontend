@@ -1,0 +1,9 @@
+<div>
+  <div>
+    {{ nickname.getName() }}
+    <a [routerLink]="['/nickname-edit', nickname.getId()]" routerLinkActive="active">Edit</a>
+    <button (click)="deleteNickname(nickname.getId())">
+      Remove
+    </button>
+  </div>
+</div>
