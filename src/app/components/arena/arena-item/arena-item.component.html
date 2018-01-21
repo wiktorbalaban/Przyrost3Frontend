@@ -1,9 +1,22 @@
 <div>
-  <div>
-    {{ arena.getName() }}
-    <a [routerLink]="['/arena-edit', arena.getId()]" routerLinkActive="active">Edit</a>
-    <button (click)="deleteArena(arena.getId())">
-      Remove
-    </button>
-  </div>
+  <table>
+    <tr>
+      <td>
+        {{ arena.getName() }}
+      </td>
+      <td>
+        <a [routerLink]="['/arena-edit', arena.getId()]" routerLinkActive="active">Edit</a>
+      </td>
+      <td>
+        <button (click)="deleteArena(arena.getId())">
+          Remove
+        </button>
+      </td>
+    </tr>
+  </table>
+  <!--{{ arena.getName() }}-->
+  <!--<a [routerLink]="['/arena-edit', arena.getId()]" routerLinkActive="active">Edit</a>-->
+  <!--<button (click)="deleteArena(arena.getId())">-->
+    <!--Remove-->
+  <!--</button>-->
 </div>

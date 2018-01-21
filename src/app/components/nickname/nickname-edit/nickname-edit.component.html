@@ -1,6 +1,17 @@
 <div>
-  id {{nickname?.getId()}} name
-  <input  type="text"  value="{{nickname?.getName()}}"[(ngModel)]="updateNicknameName">
+  <table>
+    <tr>
+      <th>id</th><th>name</th>
+    </tr>
+    <tr>
+      <td>
+        {{nickname?.getId()}}
+      </td>
+      <td>
+        <input  type="text"  value="{{nickname?.getName()}}"[(ngModel)]="updateNicknameName">
+      </td>
+    </tr>
+  </table>
   <button (click)="editNickname()">
     Update
   </button>

@@ -16,6 +16,10 @@ export class ArenaService {
     return this.http.get(`${apiUrl}/arenas`);
   }
 
+  getAllPaged(page: number, size: number): Observable<any> {
+    return this.http.get(`${apiUrl}/arenas/${page}?size=${size}`);
+  }
+
   getById(id: number): Observable<any> {
     return this.http.get(`${apiUrl}/arena/${id}`);
   }

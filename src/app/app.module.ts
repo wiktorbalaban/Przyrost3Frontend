@@ -16,12 +16,14 @@ import {NicknameAddComponent} from './components/nickname/nickname-add/nickname-
 import {NicknameEditComponent} from './components/nickname/nickname-edit/nickname-edit.component';
 import {NicknameItemComponent} from './components/nickname/nickname-item/nickname-item.component';
 import {NicknameService} from './service/nickname.service';
+import {ArenaListPagedComponent} from './components/arena/arena-list-paged/arena-list-paged.component';
 
 const ROUTES: Routes = [
   // { path: '', redirectTo: 'nickname-list', pathMatch: 'full' },
   {path: 'arena-list', component: ArenaListComponent},
   {path: 'arena-add', component: ArenaAddComponent},
   {path: 'arena-edit/:id', component: ArenaEditComponent},
+  {path: 'arena-list-paged', component: ArenaListPagedComponent},
   {path: 'nickname-list', component: NicknameListComponent},
   {path: 'nickname-add', component: NicknameAddComponent},
   {path: 'nickname-edit/:id', component: NicknameEditComponent}
@@ -31,7 +33,7 @@ const ROUTES: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ArenaListComponent, ArenaItemComponent, ArenaAddComponent, ArenaEditComponent,
+    ArenaListComponent, ArenaItemComponent, ArenaAddComponent, ArenaEditComponent, ArenaListPagedComponent,
     NicknameItemComponent, NicknameListComponent, NicknameEditComponent, NicknameAddComponent
   ],
   imports: [

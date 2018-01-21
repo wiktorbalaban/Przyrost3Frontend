@@ -1,0 +1,13 @@
+<div>
+  size
+  <input type="text" [(ngModel)]="size">
+  <app-arena-item *ngFor="let arena_item of arenasPaged" [arena]="arena_item" (removeItem)="removeArenaPaged($event)">
+  </app-arena-item>
+  page
+  <input type="text" [(ngModel)]="page">
+  z {{totalPages}}
+  <br>
+  <button (click)="getArenasPaged()">
+    Go
+  </button>
+</div>
