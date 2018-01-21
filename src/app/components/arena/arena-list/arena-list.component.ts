@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ArenaService} from '../service/arena.service';
-import {Arena} from '../models/arena';
+import {ArenaService} from '../../../service/arena.service';
+import {Arena} from '../../../models/arena';
 
 @Component({
   selector: 'app-arena-list',

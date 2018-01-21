@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ArenaService} from '../service/arena.service';
+import {ArenaService} from '../../../service/arena.service';
 import {ActivatedRoute} from '@angular/router';
-import {Arena} from '../models/arena';
+import {Arena} from '../../../models/arena';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';

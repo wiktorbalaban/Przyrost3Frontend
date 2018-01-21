@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ArenaService } from '../service/arena.service';
+import { ArenaService } from '../../../service/arena.service';
 
 @Component({
   selector: 'app-arena-add',

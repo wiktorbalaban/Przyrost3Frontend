@@ -6,11 +6,11 @@ import {FormsModule} from '@angular/forms';
 
 
 import {AppComponent} from './app.component';
-import {ArenaListComponent} from './arena-list/arena-list.component';
-import {ArenaItemComponent} from './arena-item/arena-item.component';
+import {ArenaListComponent} from './components/arena/arena-list/arena-list.component';
+import {ArenaItemComponent} from './components/arena/arena-item/arena-item.component';
 import {ArenaService} from './service/arena.service';
-import {ArenaAddComponent} from './arena-add/arena-add.component';
-import {ArenaEditComponent} from './arena-edit/arena-edit.component';
+import {ArenaAddComponent} from './components/arena/arena-add/arena-add.component';
+import {ArenaEditComponent} from './components/arena/arena-edit/arena-edit.component';
 
 const ROUTES: Routes = [
   // { path: '', redirectTo: 'arena-list', pathMatch: 'full' },

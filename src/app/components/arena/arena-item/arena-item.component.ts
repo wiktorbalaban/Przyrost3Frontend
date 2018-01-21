@@ -1,6 +1,6 @@
 import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
-import {Arena} from '../models/arena';
-import {ArenaService} from '../service/arena.service';
+import {Arena} from '../../../models/arena';
+import {ArenaService} from '../../../service/arena.service';
 
 @Component({
   selector: 'app-arena-item',
