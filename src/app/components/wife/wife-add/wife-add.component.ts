@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { WifeService } from '../../../service/wife.service';
+import {Component, OnInit} from '@angular/core';
+import {WifeService} from '../../../service/wife.service';
+import {Wife} from '../../../models/wife';
 
 @Component({
   selector: 'app-wife-add',
@@ -8,16 +9,24 @@ import { WifeService } from '../../../service/wife.service';
 })
 export class WifeAddComponent implements OnInit {
   newWifeName: String;
+  newWifeSurname: String;
+  newWifePercentagetopower: number;
+  newWife: Wife;
 
-  constructor(private wifeService: WifeService) {}
+  constructor(private wifeService: WifeService) {
+  }
 
   ngOnInit() {
     this.newWifeName = '';
+    this.newWife = new Wife();
   }
 
   createNewWife() {
     if (this.newWifeName !== '') {
-      this.wifeService.createNew(this.newWifeName);
+      this.newWife.setName(this.newWifeName);
+      this.newWife.setSurname(this.newWifeSurname);
+      this.newWife.setPercentagetopower(this.newWifePercentagetopower);
+      this.wifeService.createNew(this.newWife);
       this.newWifeName = '';
     } else {
       window.alert('brak nazwy wife');

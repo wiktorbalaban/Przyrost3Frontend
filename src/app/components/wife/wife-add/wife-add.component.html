@@ -1,5 +1,23 @@
 <div>
-  <input  type="text" [(ngModel)]="newWifeName">
+  <table>
+    <tr>
+      <th>id</th><th>name</th><th>surname</th><th>percentage to power</th>
+    </tr>
+    <tr>
+      <td>
+
+      </td>
+      <td>
+        <input  type="text" [(ngModel)]="newWifeName">
+      </td>
+      <td>
+        <input  type="text" [(ngModel)]="newWifeSurname">
+      </td>
+      <td>
+        <input  type="number" [(ngModel)]="newWifePercentagetopower">
+      </td>
+    </tr>
+  </table>
   <button (click)="createNewWife()">
     Create
   </button>

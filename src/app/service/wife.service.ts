@@ -28,11 +28,7 @@ export class WifeService {
     return this.http.get(`${apiUrl}/wife/${id}`);
   }
 
-  createNew(name: String) {
-    const data = {
-      name: name
-    };
-    const obj = new Wife(data);
+  createNew(obj: Wife) {
     return this.http.post(`${apiUrl}/wife`, obj).subscribe(res => {
       console.log(res);
     });

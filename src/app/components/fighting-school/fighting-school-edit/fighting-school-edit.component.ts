@@ -15,11 +15,9 @@ export class WifeEditComponent implements OnInit {
 
   id: number;
   private sub: any;
-  wifeToEdit: Wife;
+  wife: Wife;
   updateWife: Wife;
   updateWifeName: String;
-  updateWifeSurname: String;
-  updateWifePercentagetopower: number;
 
   constructor(private wifeService: WifeService, private route: ActivatedRoute) {
   }
@@ -30,22 +28,20 @@ export class WifeEditComponent implements OnInit {
     });
     this.wifeService.getById(this.id).subscribe(
       res => {
-        this.wifeToEdit = new Wife(res);
+        this.wife = new Wife(res);
       }
     );
   }
 
   editWife() {
-    if (this.updateWifeName !== undefined && this.updateWifePercentagetopower !== undefined) {
+    if (this.updateWifeName !== undefined) {
       this.updateWife = new Wife();
-      this.updateWife.setId(this.wifeToEdit.getId());
+      this.updateWife.setId(this.wife.getId());
       this.updateWife.setName(this.updateWifeName);
-      this.updateWife.setSurname(this.updateWifeSurname);
-      this.updateWife.setPercentagetopower(this.updateWifePercentagetopower);
       this.wifeService.edit(this.updateWife);
       console.log('updateWifeName: ' + this.updateWifeName);
     } else {
-      window.alert('Nazwa wife  jest błędna');
+      window.alert('Nazwa wife jest błędna');
     }
   }
 

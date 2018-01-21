@@ -7,6 +7,8 @@ export class Wife {
   constructor(obj?: any) {
     this.id = (obj && obj.id) || 0;
     this.name = (obj && obj.name) || '';
+    this.surname = (obj && obj.surname) || '';
+    this.percentagetopower = (obj && obj.percentagetopower) || 0;
   }
 
   getId(): number {
@@ -14,7 +16,7 @@ export class Wife {
   }
 
   getPercentagetopower(): number {
-    return this.id;
+    return this.percentagetopower;
   }
 
   getName(): String {
@@ -22,7 +24,7 @@ export class Wife {
   }
 
   getSurname(): String {
-    return this.name;
+    return this.surname;
   }
 
   setId(id: number) {
@@ -30,7 +32,7 @@ export class Wife {
   }
 
   setPercentagetopower(id: number) {
-    this.id = id;
+    this.percentagetopower = id;
   }
 
   setName(name: String) {
@@ -38,7 +40,7 @@ export class Wife {
   }
 
   setSurname(name: String) {
-    this.name = name;
+    this.surname = name;
   }
 
 }

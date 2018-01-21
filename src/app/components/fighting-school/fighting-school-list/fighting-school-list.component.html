@@ -1,0 +1,5 @@
+<div>
+  <app-wife-item *ngFor="let wife_item of wives" [wife]="wife_item"
+                  (removeWife)="removeWife($event)">
+  </app-wife-item>
+</div>
