@@ -1,5 +1,5 @@
-.menu-item:hover{
-
+.menu-item{
+  display: inline-block;
 }
 .dropdown{
 

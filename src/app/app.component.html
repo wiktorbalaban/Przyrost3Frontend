@@ -1,24 +1,14 @@
-<!--<section>-->
-<!--<div style="text-align:center">-->
-
-
-<!--<h1>-->
-<!--Welcome to {{ title }}!-->
-<!--</h1>-->
-  <!--<a routerLink="/nickname-list" routerLinkActive="active">Arena List</a>-->
-<!--</div>-->
-  <!--<div><router-outlet></router-outlet></div>-->
-<!--</section>-->
 <section>
   <header>
     <nav>
-      <div class="menu-item">Arena</div>
+      <div class="menu-item" (click)="isArenaVisible=switchValue(isArenaVisible)">Arena</div>
+      <div class="menu-item" (click)="isNicknameVisible=switchValue(isNicknameVisible)">Nickname</div>
     </nav>
-    <div class="dropdown">
+    <div class="dropdown" *ngIf="isArenaVisible">
       <a routerLink="/arena-list" routerLinkActive="active">List</a>
       <a routerLink="/arena-add" routerLinkActive="active">Add</a>
     </div>
-    <div class="dropdown">
+    <div class="dropdown" *ngIf="isNicknameVisible">
       <a routerLink="/nickname-list" routerLinkActive="active">List</a>
       <a routerLink="/nickname-add" routerLinkActive="active">Add</a>
     </div>
