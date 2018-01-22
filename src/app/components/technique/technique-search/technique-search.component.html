@@ -1,0 +1,9 @@
+<div>
+  <input type="text" [(ngModel)]="searchPhrase">
+  <button (click)="searchTechnique()">
+    Search
+  </button>
+  <app-technique-item *ngFor="let technique_item of searchedTechniques" [technique]="technique_item"
+                  (removeItem)="removeSearchedTechnique($event)">
+  </app-technique-item>
+</div>

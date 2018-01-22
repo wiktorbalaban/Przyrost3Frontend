@@ -5,6 +5,7 @@
       <div class="menu-item" (click)="isNicknameVisible=switchValue(isNicknameVisible)">Nickname</div>
       <div class="menu-item" (click)="isWifeVisible=switchValue(isWifeVisible)">Wife</div>
       <div class="menu-item" (click)="isFightingSchoolVisible=switchValue(isFightingSchoolVisible)">FightingSchool</div>
+      <div class="menu-item" (click)="isTechniqueVisible=switchValue(isTechniqueVisible)">Technique</div>
     </nav>
     <div class="dropdown" *ngIf="isArenaVisible">
       Arena:
@@ -33,6 +34,13 @@
       <a routerLink="/fighting-school-search" routerLinkActive="active">Search</a>
       <a routerLink="/fighting-school-list" routerLinkActive="active">List</a>
       <a routerLink="/fighting-school-add" routerLinkActive="active">Add</a>
+    </div>
+    <div class="dropdown" *ngIf="isTechniqueVisible">
+      Technique:
+      <a routerLink="/technique-list-paged" routerLinkActive="active">List paged</a>
+      <a routerLink="/technique-search" routerLinkActive="active">Search</a>
+      <a routerLink="/technique-list" routerLinkActive="active">List</a>
+      <a routerLink="/technique-add" routerLinkActive="active">Add</a>
     </div>
   </header>
   <router-outlet></router-outlet>

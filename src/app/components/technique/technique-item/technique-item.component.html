@@ -1,0 +1,17 @@
+<div>
+  <table>
+    <tr>
+      <td>
+        {{ technique.getName() }}
+      </td>
+      <td>
+        <a [routerLink]="['/technique-edit', technique.getId()]" routerLinkActive="active">Edit</a>
+      </td>
+      <td>
+        <button (click)="deleteTechnique(technique.getId())">
+          Remove
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

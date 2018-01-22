@@ -1,0 +1,21 @@
+<div>
+  <table>
+    <tr>
+      <th>id</th><th>name</th><th>percentage to power</th>
+    </tr>
+    <tr>
+      <td>
+        {{techniqueToEdit?.getId()}}
+      </td>
+      <td>
+        <input  type="text"  value="{{techniqueToEdit?.getName()}}"[(ngModel)]="updateTechniqueName">
+      </td>
+      <td>
+        <input  type="number"  value="{{techniqueToEdit?.getPercentagetopower()}}"[(ngModel)]="updateTechniquePercentagetopower">
+      </td>
+    </tr>
+  </table>
+  <button (click)="editTechnique()">
+    Update
+  </button>
+</div>

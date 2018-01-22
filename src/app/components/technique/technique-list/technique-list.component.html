@@ -1,0 +1,5 @@
+<div>
+  <app-technique-item *ngFor="let technique_item of techniques" [technique]="technique_item"
+                  (removeTechnique)="removeTechnique($event)">
+  </app-technique-item>
+</div>

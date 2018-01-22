@@ -35,6 +35,13 @@ import {FightingSchoolListPagedComponent} from './components/fighting-school/fig
 import {FightingSchoolSearchComponent} from './components/fighting-school/fighting-school-search/fighting-school-search.component';
 import {FightingSchoolItemComponent} from './components/fighting-school/fighting-school-item/fighting-school-item.component';
 import {FightingSchoolService} from './service/fighting-school.service';
+import {TechniqueEditComponent} from './components/technique/technique-edit/technique-edit.component';
+import {TechniqueAddComponent} from './components/technique/technique-add/technique-add.component';
+import {TechniqueListComponent} from './components/technique/technique-list/technique-list.component';
+import {TechniqueListPagedComponent} from './components/technique/technique-paged/technique-list-paged.component';
+import {TechniqueSearchComponent} from './components/technique/technique-search/technique-search.component';
+import {TechniqueItemComponent} from './components/technique/technique-item/technique-item.component';
+import {TechniqueService} from './service/technique.service';
 
 const ROUTES: Routes = [
   // { path: '', redirectTo: 'nickname-list', pathMatch: 'full' },
@@ -57,7 +64,12 @@ const ROUTES: Routes = [
   {path: 'fighting-school-list-paged', component: FightingSchoolListPagedComponent},
   {path: 'fighting-school-list', component: FightingSchoolListComponent},
   {path: 'fighting-school-add', component: FightingSchoolAddComponent},
-  {path: 'fighting-school-edit/:id', component: FightingSchoolEditComponent}
+  {path: 'fighting-school-edit/:id', component: FightingSchoolEditComponent},
+  {path: 'technique-search', component: TechniqueSearchComponent},
+  {path: 'technique-list-paged', component: TechniqueListPagedComponent},
+  {path: 'technique-list', component: TechniqueListComponent},
+  {path: 'technique-add', component: TechniqueAddComponent},
+  {path: 'technique-edit/:id', component: TechniqueEditComponent}
 ];
 
 
@@ -69,12 +81,14 @@ const ROUTES: Routes = [
     NicknameSearchComponent,
     WifeItemComponent, WifeListComponent, WifeEditComponent, WifeAddComponent, WifeListPagedComponent, WifeSearchComponent,
     FightingSchoolItemComponent, FightingSchoolListComponent, FightingSchoolEditComponent, FightingSchoolAddComponent,
-    FightingSchoolListPagedComponent, FightingSchoolSearchComponent
+    FightingSchoolListPagedComponent, FightingSchoolSearchComponent,
+    TechniqueItemComponent, TechniqueListComponent, TechniqueEditComponent, TechniqueAddComponent,
+    TechniqueListPagedComponent, TechniqueSearchComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(ROUTES)
   ],
-  providers: [ArenaService, NicknameService, WifeService, FightingSchoolService],
+  providers: [ArenaService, NicknameService, WifeService, FightingSchoolService, TechniqueService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
