@@ -14,10 +14,10 @@ export class FightingSchoolListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getWives();
+    this.getFightingSchools();
   }
 
-  private getWives() {
+  private getFightingSchools() {
     this.fightingSchoolService.getAll().subscribe(res => {
       this.fightingSchools = res.map(el => new FightingSchool(el));
     });

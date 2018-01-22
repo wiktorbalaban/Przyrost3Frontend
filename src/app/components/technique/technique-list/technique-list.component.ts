@@ -14,10 +14,10 @@ export class TechniqueListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getWives();
+    this.getTechniques();
   }
 
-  private getWives() {
+  private getTechniques() {
     this.techniqueService.getAll().subscribe(res => {
       this.techniques = res.map(el => new Technique(el));
     });

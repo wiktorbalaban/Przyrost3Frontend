@@ -42,6 +42,9 @@ import {TechniqueListPagedComponent} from './components/technique/technique-page
 import {TechniqueSearchComponent} from './components/technique/technique-search/technique-search.component';
 import {TechniqueItemComponent} from './components/technique/technique-item/technique-item.component';
 import {TechniqueService} from './service/technique.service';
+import {WarriorService} from './service/warrior.service';
+import {WarriorItemComponent} from './components/warrior/warrior-item/warrior-item.component';
+import {WarriorListComponent} from './components/warrior/warrior-list/warrior-list.component';
 
 const ROUTES: Routes = [
   // { path: '', redirectTo: 'nickname-list', pathMatch: 'full' },
@@ -69,7 +72,8 @@ const ROUTES: Routes = [
   {path: 'technique-list-paged', component: TechniqueListPagedComponent},
   {path: 'technique-list', component: TechniqueListComponent},
   {path: 'technique-add', component: TechniqueAddComponent},
-  {path: 'technique-edit/:id', component: TechniqueEditComponent}
+  {path: 'technique-edit/:id', component: TechniqueEditComponent},
+  {path: 'warrior-list', component: WarriorListComponent}
 ];
 
 
@@ -83,12 +87,13 @@ const ROUTES: Routes = [
     FightingSchoolItemComponent, FightingSchoolListComponent, FightingSchoolEditComponent, FightingSchoolAddComponent,
     FightingSchoolListPagedComponent, FightingSchoolSearchComponent,
     TechniqueItemComponent, TechniqueListComponent, TechniqueEditComponent, TechniqueAddComponent,
-    TechniqueListPagedComponent, TechniqueSearchComponent
+    TechniqueListPagedComponent, TechniqueSearchComponent,
+    WarriorItemComponent, WarriorListComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(ROUTES)
   ],
-  providers: [ArenaService, NicknameService, WifeService, FightingSchoolService, TechniqueService],
+  providers: [ArenaService, NicknameService, WifeService, FightingSchoolService, TechniqueService, WarriorService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

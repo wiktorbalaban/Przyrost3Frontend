@@ -1,0 +1,5 @@
+<div>
+  <app-warrior-item *ngFor="let warrior_item of warriors" [warrior]="warrior_item"
+                  (removeWarrior)="removeWarrior($event)">
+  </app-warrior-item>
+</div>
