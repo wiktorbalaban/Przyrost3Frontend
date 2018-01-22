@@ -39,11 +39,11 @@ export class WarriorEditComponent implements OnInit {
     this.warriorService.getById(this.id).subscribe(
       res => {
         this.warriorToEdit = new Warrior(res);
-        console.log('update res: ' + res);
-        console.log('this.warriorToEdit: ' + this.warriorToEdit);
-        console.log('this.warriorToEdit.getNickname(): ' + this.warriorToEdit.getNickname());
-        console.log('this.warriorToEdit.getNickname().getId(): ' + this.warriorToEdit.getNickname().getId());
-        console.log('this.warriorToEdit.getNickname().getName(): ' + this.warriorToEdit.getNickname().getName());
+        // console.log('update res: ' + res);
+        // console.log('this.warriorToEdit: ' + this.warriorToEdit);
+        // console.log('this.warriorToEdit.getNickname(): ' + this.warriorToEdit.getNickname());
+        // console.log('this.warriorToEdit.getNickname().getId(): ' + this.warriorToEdit.getNickname().getId());
+        // console.log('this.warriorToEdit.getNickname().getName(): ' + this.warriorToEdit.getNickname().getName());
       }
     );
   }
