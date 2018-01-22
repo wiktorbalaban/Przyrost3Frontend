@@ -1,9 +1,9 @@
 <div>
   <input type="text" [(ngModel)]="searchPhrase">
-  <button (click)="searchWife()">
+  <button (click)="searchFightingSchool()">
     Search
   </button>
-  <app-wife-item *ngFor="let wife_item of searchedWives" [wife]="wife_item"
-                  (removeItem)="removeSearchedWife($event)">
-  </app-wife-item>
+  <app-fighting-school-item *ngFor="let fightingSchool_item of searchedFightingSchools" [fightingSchool]="fightingSchool_item"
+                  (removeItem)="removeSearchedFightingSchool($event)">
+  </app-fighting-school-item>
 </div>

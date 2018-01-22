@@ -1,13 +1,13 @@
 <div>
   size
   <input type="text" [(ngModel)]="size">
-  <app-wife-item *ngFor="let wife_item of wivesPaged" [wife]="wife_item" (removeWife)="removeWifePaged($event)">
-  </app-wife-item>
+  <app-fighting-school-item *ngFor="let fightingSchool_item of fightingSchoolsPaged" [fightingSchool]="fightingSchool_item" (removeFightingSchool)="removeFightingSchoolPaged($event)">
+  </app-fighting-school-item>
   page
   <input type="text" [(ngModel)]="page">
   z {{totalPages}}
   <br>
-  <button (click)="getWivesPaged()">
+  <button (click)="getFightingSchoolsPaged()">
     Go
   </button>
 </div>

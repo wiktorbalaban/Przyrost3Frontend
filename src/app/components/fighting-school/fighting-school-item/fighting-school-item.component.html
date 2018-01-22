@@ -2,13 +2,13 @@
   <table>
     <tr>
       <td>
-        {{ wife.getName() }}
+        {{ fightingSchool.getName() }}
       </td>
       <td>
-        <a [routerLink]="['/wife-edit', wife.getId()]" routerLinkActive="active">Edit</a>
+        <a [routerLink]="['/fighting-school-edit', fightingSchool.getId()]" routerLinkActive="active">Edit</a>
       </td>
       <td>
-        <button (click)="deleteWife(wife.getId())">
+        <button (click)="deleteFightingSchool(fightingSchool.getId())">
           Remove
         </button>
       </td>

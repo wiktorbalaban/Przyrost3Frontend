@@ -28,6 +28,8 @@ export class WifeAddComponent implements OnInit {
       this.newWife.setPercentagetopower(this.newWifePercentagetopower);
       this.wifeService.createNew(this.newWife);
       this.newWifeName = '';
+      this.newWifeSurname = '';
+      this.newWifePercentagetopower = undefined;
     } else {
       window.alert('brak nazwy wife');
     }

@@ -1,16 +1,16 @@
 import {Component, OnInit} from '@angular/core';
-import {WifeService} from '../../../service/wife.service';
-import {Wife} from '../../../models/wife';
+import {FightingSchoolService} from '../../../service/fighting-school.service';
+import {FightingSchool} from '../../../models/fighting-school';
 
 @Component({
-  selector: 'app-wife-list',
-  templateUrl: './wife-list.component.html',
-  styleUrls: ['./wife-list.component.css']
+  selector: 'app-fighting-school-list',
+  templateUrl: './fighting-school-list.component.html',
+  styleUrls: ['./fighting-school-list.component.css']
 })
-export class WifeListComponent implements OnInit {
-  wives: Wife[];
+export class FightingSchoolListComponent implements OnInit {
+  fightingSchools: FightingSchool[];
 
-  constructor(private wifeService: WifeService) {
+  constructor(private fightingSchoolService: FightingSchoolService) {
   }
 
   ngOnInit() {
@@ -18,14 +18,14 @@ export class WifeListComponent implements OnInit {
   }
 
   private getWives() {
-    this.wifeService.getAll().subscribe(res => {
-      this.wives = res.map(el => new Wife(el));
+    this.fightingSchoolService.getAll().subscribe(res => {
+      this.fightingSchools = res.map(el => new FightingSchool(el));
     });
   }
 
-  public removeWife(id: number) {
-    this.wives = this.wives.filter(el => el.getId() !== id);
-    console.log(id, 'remove wife');
+  public removeFightingSchool(id: number) {
+    this.fightingSchools = this.fightingSchools.filter(el => el.getId() !== id);
+    console.log(id, 'remove fightingSchool');
   }
 
 }

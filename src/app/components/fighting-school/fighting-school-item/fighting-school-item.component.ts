@@ -1,29 +1,29 @@
 import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
-import {Wife} from '../../../models/wife';
-import {WifeService} from '../../../service/wife.service';
+import {FightingSchool} from '../../../models/fighting-school';
+import {FightingSchoolService} from '../../../service/fighting-school.service';
 
 @Component({
-  selector: 'app-wife-item',
-  templateUrl: './wife-item.component.html',
-  styleUrls: ['./wife-item.component.css']
+  selector: 'app-fighting-school-item',
+  templateUrl: './fighting-school-item.component.html',
+  styleUrls: ['./fighting-school-item.component.css']
 })
-export class WifeItemComponent implements OnInit {
-  @Input() wife: Wife;
-  @Output() removeWife: EventEmitter<number> = new EventEmitter();
+export class FightingSchoolItemComponent implements OnInit {
+  @Input() fightingSchool: FightingSchool;
+  @Output() removeFightingSchool: EventEmitter<number> = new EventEmitter();
 
-  constructor(private wifeService: WifeService) {
+  constructor(private fightingSchoolService: FightingSchoolService) {
   }
 
   ngOnInit() {
   }
 
   remove(id: number) {
-    this.removeWife.emit(id);
+    this.removeFightingSchool.emit(id);
   }
 
-  deleteWife(id: number) {
-    this.wifeService.delete(id);
+  deleteFightingSchool(id: number) {
+    this.fightingSchoolService.delete(id);
     this.remove(id);
-    console.log('deleteWife');
+    console.log('deleteFightingSchool');
   }
 }

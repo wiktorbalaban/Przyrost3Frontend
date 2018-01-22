@@ -1,26 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { WifeService } from '../../../service/wife.service';
+import {Component, OnInit} from '@angular/core';
+import {FightingSchoolService} from '../../../service/fighting-school.service';
+import {FightingSchool} from '../../../models/fighting-school';
 
 @Component({
-  selector: 'app-wife-add',
-  templateUrl: './wife-add.component.html',
-  styleUrls: ['./wife-add.component.css']
+  selector: 'app-fighting-school-add',
+  templateUrl: './fighting-school-add.component.html',
+  styleUrls: ['./fighting-school-add.component.css']
 })
-export class WifeAddComponent implements OnInit {
-  newWifeName: String;
+export class FightingSchoolAddComponent implements OnInit {
+  newFightingSchoolName: String;
+  newFightingSchoolPercentagetopower: number;
+  newFightingSchool: FightingSchool;
 
-  constructor(private wifeService: WifeService) {}
-
-  ngOnInit() {
-    this.newWifeName = '';
+  constructor(private fightingSchoolService: FightingSchoolService) {
   }
 
-  createNewWife() {
-    if (this.newWifeName !== '') {
-      // this.wifeService.createNew(this.newWifeName);
-      this.newWifeName = '';
+  ngOnInit() {
+    this.newFightingSchoolName = '';
+    this.newFightingSchool = new FightingSchool();
+  }
+
+  createNewFightingSchool() {
+    if (this.newFightingSchoolName !== '') {
+      this.newFightingSchool.setName(this.newFightingSchoolName);
+      this.newFightingSchool.setPercentagetopower(this.newFightingSchoolPercentagetopower);
+      this.fightingSchoolService.createNew(this.newFightingSchool);
+      this.newFightingSchoolName = '';
+      this.newFightingSchoolPercentagetopower = undefined;
     } else {
-      window.alert('brak nazwy wife');
+      window.alert('brak nazwy FightingSchool');
     }
   }
 }

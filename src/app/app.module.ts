@@ -27,6 +27,14 @@ import {WifeAddComponent} from './components/wife/wife-add/wife-add.component';
 import {WifeEditComponent} from './components/wife/wife-edit/wife-edit.component';
 import {WifeItemComponent} from './components/wife/wife-item/wife-item.component';
 import {WifeService} from './service/wife.service';
+import {FightingSchool} from './models/fighting-school';
+import {FightingSchoolEditComponent} from './components/fighting-school/fighting-school-edit/fighting-school-edit.component';
+import {FightingSchoolAddComponent} from './components/fighting-school/fighting-school-add/fighting-school-add.component';
+import {FightingSchoolListComponent} from './components/fighting-school/fighting-school-list/fighting-school-list.component';
+import {FightingSchoolListPagedComponent} from './components/fighting-school/fighting-school-list-paged/fight-school-list-paged.component';
+import {FightingSchoolSearchComponent} from './components/fighting-school/fighting-school-search/fighting-school-search.component';
+import {FightingSchoolItemComponent} from './components/fighting-school/fighting-school-item/fighting-school-item.component';
+import {FightingSchoolService} from './service/fighting-school.service';
 
 const ROUTES: Routes = [
   // { path: '', redirectTo: 'nickname-list', pathMatch: 'full' },
@@ -44,7 +52,12 @@ const ROUTES: Routes = [
   {path: 'wife-list-paged', component: WifeListPagedComponent},
   {path: 'wife-list', component: WifeListComponent},
   {path: 'wife-add', component: WifeAddComponent},
-  {path: 'wife-edit/:id', component: WifeEditComponent}
+  {path: 'wife-edit/:id', component: WifeEditComponent},
+  {path: 'fighting-school-search', component: FightingSchoolSearchComponent},
+  {path: 'fighting-school-list-paged', component: FightingSchoolListPagedComponent},
+  {path: 'fighting-school-list', component: FightingSchoolListComponent},
+  {path: 'fighting-school-add', component: FightingSchoolAddComponent},
+  {path: 'fighting-school-edit/:id', component: FightingSchoolEditComponent}
 ];
 
 
@@ -54,12 +67,14 @@ const ROUTES: Routes = [
     ArenaListComponent, ArenaItemComponent, ArenaAddComponent, ArenaEditComponent, ArenaListPagedComponent, ArenaSearchComponent,
     NicknameItemComponent, NicknameListComponent, NicknameEditComponent, NicknameAddComponent, NicknameListPagedComponent,
     NicknameSearchComponent,
-    WifeItemComponent, WifeListComponent, WifeEditComponent, WifeAddComponent, WifeListPagedComponent, WifeSearchComponent
+    WifeItemComponent, WifeListComponent, WifeEditComponent, WifeAddComponent, WifeListPagedComponent, WifeSearchComponent,
+    FightingSchoolItemComponent, FightingSchoolListComponent, FightingSchoolEditComponent, FightingSchoolAddComponent,
+    FightingSchoolListPagedComponent, FightingSchoolSearchComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(ROUTES)
   ],
-  providers: [ArenaService, NicknameService, WifeService],
+  providers: [ArenaService, NicknameService, WifeService, FightingSchoolService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

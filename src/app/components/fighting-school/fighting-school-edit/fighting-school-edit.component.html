@@ -1,18 +1,21 @@
 <div>
   <table>
     <tr>
-      <th>id</th><th>name</th>
+      <th>id</th><th>name</th><th>percentage to power</th>
     </tr>
     <tr>
       <td>
-        {{wife?.getId()}}
+        {{fightingSchoolToEdit?.getId()}}
       </td>
       <td>
-        <input  type="text"  value="{{wife?.getName()}}"[(ngModel)]="updateWifeName">
+        <input  type="text"  value="{{fightingSchoolToEdit?.getName()}}"[(ngModel)]="updateFightingSchoolName">
+      </td>
+      <td>
+        <input  type="number"  value="{{fightingSchoolToEdit?.getPercentagetopower()}}"[(ngModel)]="updateFightingSchoolPercentagetopower">
       </td>
     </tr>
   </table>
-  <button (click)="editWife()">
+  <button (click)="editFightingSchool()">
     Update
   </button>
 </div>

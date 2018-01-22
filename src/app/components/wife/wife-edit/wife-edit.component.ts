@@ -36,7 +36,7 @@ export class WifeEditComponent implements OnInit {
   }
 
   editWife() {
-    if (this.updateWifeName !== undefined && this.updateWifePercentagetopower !== undefined) {
+    if (this.updateWifeName !== undefined && this.updateWifeSurname !== undefined && this.updateWifePercentagetopower !== undefined) {
       this.updateWife = new Wife();
       this.updateWife.setId(this.wifeToEdit.getId());
       this.updateWife.setName(this.updateWifeName);

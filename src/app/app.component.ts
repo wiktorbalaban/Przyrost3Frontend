@@ -10,11 +10,13 @@ export class AppComponent implements OnInit {
   isArenaVisible: boolean;
   isNicknameVisible: boolean;
   isWifeVisible: boolean;
+  isFightingSchoolVisible: boolean;
 
   ngOnInit() {
     this.isArenaVisible = false;
     this.isNicknameVisible = false;
     this.isWifeVisible = false;
+    this.isFightingSchoolVisible = false;
   }
 
   switchValue(isObjVisible: boolean): boolean {

@@ -1,47 +1,49 @@
 import {Component, OnInit} from '@angular/core';
-import {WifeService} from '../../../service/wife.service';
+import {FightingSchoolService} from '../../../service/fighting-school.service';
 import {ActivatedRoute} from '@angular/router';
-import {Wife} from '../../../models/wife';
+import {FightingSchool} from '../../../models/fighting-school';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-wife-edit',
-  templateUrl: './wife-edit.component.html',
-  styleUrls: ['./wife-edit.component.css']
+  selector: 'app-fighting-school-edit',
+  templateUrl: './fighting-school-edit.component.html',
+  styleUrls: ['./fighting-school-edit.component.css']
 })
-export class WifeEditComponent implements OnInit {
+export class FightingSchoolEditComponent implements OnInit {
 
   id: number;
   private sub: any;
-  wife: Wife;
-  updateWife: Wife;
-  updateWifeName: String;
+  fightingSchoolToEdit: FightingSchool;
+  updateFightingSchool: FightingSchool;
+  updateFightingSchoolName: String;
+  updateFightingSchoolPercentagetopower: number;
 
-  constructor(private wifeService: WifeService, private route: ActivatedRoute) {
+  constructor(private fightingSchoolService: FightingSchoolService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
     });
-    this.wifeService.getById(this.id).subscribe(
+    this.fightingSchoolService.getById(this.id).subscribe(
       res => {
-        this.wife = new Wife(res);
+        this.fightingSchoolToEdit = new FightingSchool(res);
       }
     );
   }
 
-  editWife() {
-    if (this.updateWifeName !== undefined) {
-      this.updateWife = new Wife();
-      this.updateWife.setId(this.wife.getId());
-      this.updateWife.setName(this.updateWifeName);
-      this.wifeService.edit(this.updateWife);
-      console.log('updateWifeName: ' + this.updateWifeName);
+  editFightingSchool() {
+    if (this.updateFightingSchoolName !== undefined && this.updateFightingSchoolPercentagetopower !== undefined) {
+      this.updateFightingSchool = new FightingSchool();
+      this.updateFightingSchool.setId(this.fightingSchoolToEdit.getId());
+      this.updateFightingSchool.setName(this.updateFightingSchoolName);
+      this.updateFightingSchool.setPercentagetopower(this.updateFightingSchoolPercentagetopower);
+      this.fightingSchoolService.edit(this.updateFightingSchool);
+      console.log('updateFightingSchoolName: ' + this.updateFightingSchoolName);
     } else {
-      window.alert('Nazwa wife jest błędna');
+      window.alert('Nazwa fightingSchool  jest błędna');
     }
   }
 

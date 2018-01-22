@@ -1,27 +1,27 @@
 import {Component, OnInit} from '@angular/core';
-import {WifeService} from '../../../service/wife.service';
-import {Wife} from '../../../models/wife';
+import {FightingSchoolService} from '../../../service/fighting-school.service';
+import {FightingSchool} from '../../../models/fighting-school';
 
 @Component({
-  selector: 'app-wife-search',
-  templateUrl: './wife-search.component.html',
-  styleUrls: ['./wife-search.component.css']
+  selector: 'app-fighting-school-search',
+  templateUrl: './fighting-school-search.component.html',
+  styleUrls: ['./fighting-school-search.component.css']
 })
-export class WifeSearchComponent implements OnInit {
+export class FightingSchoolSearchComponent implements OnInit {
   searchPhrase: String;
-  searchedWives: Wife[];
+  searchedFightingSchools: FightingSchool[];
 
-  constructor(private wifeSearchService: WifeService) {
+  constructor(private fightingSchoolSearchService: FightingSchoolService) {
   }
 
   ngOnInit() {
     this.searchPhrase = '';
   }
 
-  searchWife() {
+  searchFightingSchool() {
     if (this.searchPhrase !== '') {
-      this.wifeSearchService.getByName(this.searchPhrase).subscribe(res => {
-        this.searchedWives = res.map(el => new Wife(el));
+      this.fightingSchoolSearchService.getByName(this.searchPhrase).subscribe(res => {
+        this.searchedFightingSchools = res.map(el => new FightingSchool(el));
       });
       this.searchPhrase = '';
     } else {
@@ -29,8 +29,8 @@ export class WifeSearchComponent implements OnInit {
     }
   }
 
-  public removeSearchedWife(id: number) {
-    this.searchedWives = this.searchedWives.filter(el => el.getId() !== id);
-    console.log(id, 'remove wife');
+  public removeSearchedFightingSchool(id: number) {
+    this.searchedFightingSchools = this.searchedFightingSchools.filter(el => el.getId() !== id);
+    console.log(id, 'remove fightingSchool');
   }
 }
