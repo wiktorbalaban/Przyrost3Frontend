@@ -29,7 +29,11 @@ export class TechniqueEditComponent implements OnInit {
     });
     this.techniqueService.getById(this.id).subscribe(
       res => {
+        console.log('update res: ' + res);
         this.techniqueToEdit = new Technique(res);
+        console.log('this.techniqueToEdit.getId(): ' + this.techniqueToEdit.getId());
+        console.log('this.techniqueToEdit.getName(): ' + this.techniqueToEdit.getName());
+        console.log('this.techniqueToEdit.getPercentagetopower(): ' + this.techniqueToEdit.getPercentagetopower());
       }
     );
   }

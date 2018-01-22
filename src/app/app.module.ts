@@ -45,6 +45,7 @@ import {TechniqueService} from './service/technique.service';
 import {WarriorService} from './service/warrior.service';
 import {WarriorItemComponent} from './components/warrior/warrior-item/warrior-item.component';
 import {WarriorListComponent} from './components/warrior/warrior-list/warrior-list.component';
+import {WarriorEditComponent} from './components/warrior/warrior-edit/warrior-edit.component';
 
 const ROUTES: Routes = [
   // { path: '', redirectTo: 'nickname-list', pathMatch: 'full' },
@@ -73,7 +74,8 @@ const ROUTES: Routes = [
   {path: 'technique-list', component: TechniqueListComponent},
   {path: 'technique-add', component: TechniqueAddComponent},
   {path: 'technique-edit/:id', component: TechniqueEditComponent},
-  {path: 'warrior-list', component: WarriorListComponent}
+  {path: 'warrior-list', component: WarriorListComponent},
+  {path: 'warrior-edit/:id', component: WarriorEditComponent}
 ];
 
 
@@ -88,7 +90,7 @@ const ROUTES: Routes = [
     FightingSchoolListPagedComponent, FightingSchoolSearchComponent,
     TechniqueItemComponent, TechniqueListComponent, TechniqueEditComponent, TechniqueAddComponent,
     TechniqueListPagedComponent, TechniqueSearchComponent,
-    WarriorItemComponent, WarriorListComponent
+    WarriorItemComponent, WarriorListComponent, WarriorEditComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(ROUTES)

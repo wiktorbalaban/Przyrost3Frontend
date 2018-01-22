@@ -2,6 +2,7 @@ import {Nickname} from './nickname';
 import {FightingSchool} from './fighting-school';
 import {Technique} from './technique';
 import {Wife} from './wife';
+import {forEach} from '@angular/router/src/utils/collection';
 
 export class Warrior {
   private id: number;
@@ -18,10 +19,13 @@ export class Warrior {
     this.name = (obj && obj.name) || '';
     this.surname = (obj && obj.surname) || '';
     this.power = (obj && obj.power) || 0;
-    this.nickname = (obj && obj.nickname) || null;
-    this.wife = (obj && obj.wife) || null;
-    this.fightingschool = (obj && obj.fightingschool) || null;
-    this.techniques = (obj && obj.techniques) || [];
+    this.nickname = new Nickname(obj && obj.nickname) || null;
+    this.wife = new Wife(obj && obj.wife) || null;
+    this.fightingschool = new FightingSchool(obj && obj.fightingschool) || null;
+    // console.log('(obj && obj.techniques).map(el => new Technique(el) ' + (obj && obj.techniques).map(el => new Technique(el)));
+    this.techniques = (obj && obj.techniques).map(el => new Technique(el)) || null;
+    // console.log('Warrior class this.techniqueslength ' + this.techniques.length);
+    // console.log('Warrior class this.techniques[0].getId()' + this.techniques[0].getId());
   }
 
   getId(): number {

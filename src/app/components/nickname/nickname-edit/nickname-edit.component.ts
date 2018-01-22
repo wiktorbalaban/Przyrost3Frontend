@@ -29,6 +29,9 @@ export class NicknameEditComponent implements OnInit {
     this.nicknameService.getById(this.id).subscribe(
       res => {
         this.nickname = new Nickname(res);
+        console.log('nickname res: ' + res);
+        console.log('this.nickname: ' + this.nickname);
+        console.log('this.nicknamegetId: ' + this.nickname.getId());
       }
     );
   }

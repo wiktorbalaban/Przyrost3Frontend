@@ -1,0 +1,38 @@
+<div>
+  <table>
+    <tr>
+      <th>id</th><th>name</th><th>surname</th><th>power</th><th>nickname</th><th>wife</th><th>fighting school</th>
+      <th>techniques</th>
+    </tr>
+    <tr>
+      <td>
+        {{warriorToEdit?.getId()}}
+      </td>
+      <td>
+        <input  type="text"  value="{{warriorToEdit?.getName()}}"[(ngModel)]="updateWarriorName">
+      </td>
+      <td>
+        <input  type="text"  value="{{warriorToEdit?.getSurname()}}"[(ngModel)]="updateWarriorSurname">
+      </td>
+      <td>
+        <input  type="number"  value="{{warriorToEdit?.getPower()}}"[(ngModel)]="updateWarriorPower">
+      </td>
+      <td>
+        <app-nickname-item [nickname]="warriorToEdit?.getNickname()" (removeNickname)="removeNickname($event)">
+        </app-nickname-item>
+      </td>
+      <td>
+
+      </td>
+      <td>
+
+      </td>
+      <td>
+
+      </td>
+    </tr>
+  </table>
+  <button (click)="editWarrior()">
+    Update
+  </button>
+</div>
