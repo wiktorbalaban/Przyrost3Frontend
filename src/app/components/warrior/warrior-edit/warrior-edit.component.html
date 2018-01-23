@@ -48,9 +48,33 @@
         </div>
       </td>
       <td>
-        <app-technique-item *ngFor="let technique_item of warriorToEdit?.getTechniques()" [technique]="technique_item"
-                            (removeTechnique)="removeTechnique($event)">
-        </app-technique-item>
+        <div *ngIf="areTeEditing == false">
+          <div *ngFor="let ts of warriorToEdit?.getTechniques()">
+            {{ts.getName()}}
+          </div>
+          <button (click)="editTechniques()">
+            Edit
+          </button>
+        </div>
+        <div *ngIf="areTeEditing == true">
+          <div *ngFor="let ts of teToChoose; let inx = index">
+            <span *ngIf="teToChooseFlag[inx]==true">
+              <button (click)="switchTeToChooseFlag(inx)">
+              Choose
+            </button>
+              {{ts.getName()}}
+            </span>
+            <span *ngIf="teToChooseFlag[inx]==false">
+              <button (click)="switchTeToChooseFlag(inx)">
+              _Dont_
+            </button>
+              {{ts.getName()}}
+            </span>
+          </div>
+          <button (click)="confirmTechniques()">
+            Confirm
+          </button>
+        </div>
       </td>
     </tr>
   </table>

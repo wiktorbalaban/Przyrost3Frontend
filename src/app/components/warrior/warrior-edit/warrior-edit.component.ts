@@ -10,6 +10,7 @@ import {Wife} from '../../../models/wife';
 import {FightingSchool} from '../../../models/fighting-school';
 import {Technique} from '../../../models/technique';
 import {FightingSchoolService} from '../../../service/fighting-school.service';
+import {TechniqueService} from '../../../service/technique.service';
 
 @Component({
   selector: 'app-warrior-edit',
@@ -31,9 +32,12 @@ export class WarriorEditComponent implements OnInit {
   updateWarriorTechniques: Array<Technique>;
 
   fsToChoose: Array<FightingSchool>;
+  teToChoose: Array<Technique>;
+  teToChooseFlag: Array<boolean>;
+  areTeEditing: boolean;
 
   constructor(private warriorService: WarriorService, private route: ActivatedRoute,
-              private fightingSchoolService: FightingSchoolService) {
+              private fightingSchoolService: FightingSchoolService, private techniqueService: TechniqueService) {
   }
 
   ngOnInit() {
@@ -43,14 +47,15 @@ export class WarriorEditComponent implements OnInit {
     this.warriorService.getById(this.id).subscribe(
       res => {
         this.warriorToEdit = new Warrior(res);
-        if (this.warriorToEdit.getFightingSchool() != null) {
-          console.log('this.warriorToEdit.getFightingSchool() != null');
-        } else {
-          console.log('this.warriorToEdit.getFightingSchool() == null');
-        }
+        // if (this.warriorToEdit.getFightingSchool() != null) {
+        //   console.log('this.warriorToEdit.getFightingSchool() != null');
+        // } else {
+        //   console.log('this.warriorToEdit.getFightingSchool() == null');
+        // }
       }
     );
     this.getFightingSchools();
+    this.areTeEditing = false;
   }
 
   editWarrior() {
@@ -77,12 +82,58 @@ export class WarriorEditComponent implements OnInit {
     });
   }
 
+  private getTechniques() {
+    this.techniqueService.getAll().subscribe(res => {
+      this.teToChoose = res.map(el => new Technique(el));
+    });
+  }
+
   chooseFightingSchool(fightingSchool: FightingSchool) {
     this.warriorToEdit.setFightingSchool(fightingSchool);
   }
 
   chooseAnotherFightingSchool() {
     this.warriorToEdit.setFightingSchool(null);
+  }
+
+  editTechniques() {
+    this.getTechniques();
+    this.teToChooseFlag = [];
+    if (this.teToChoose !== undefined) {
+      if (this.teToChoose.length > 0) {
+        for (const index in this.teToChoose) {
+          // console.log('t ' + t);
+          if (this.warriorToEdit.getTechniques().find(t => t.getId() === this.teToChoose[index].getId()) === undefined) {
+            this.teToChooseFlag[index] = false;
+          } else {
+            this.teToChooseFlag[index] = true;
+          }
+        }
+        this.areTeEditing = true;
+      } else {
+        window.alert('nie ma technik');
+      }
+    } else {
+      window.alert('kliknij jeszcze raz :)');
+    }
+  }
+
+  switchTeToChooseFlag(index: number) {
+    if (index < this.teToChooseFlag.length) {
+      this.teToChooseFlag[index] = !this.teToChooseFlag[index];
+    }
+  }
+
+  confirmTechniques() {
+    let tmp: Array<Technique>;
+    tmp = [];
+    for (const index in this.teToChoose) {
+      if (this.teToChooseFlag[index]) {
+        tmp.push(this.teToChoose[index]);
+      }
+    }
+    this.warriorToEdit.setTechniques(tmp);
+    this.areTeEditing = false;
   }
 
 }

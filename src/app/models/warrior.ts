@@ -30,7 +30,7 @@ export class Warrior {
     // console.log('(obj && obj.fightingschool) ' + (obj && obj.fightingschool));
     // console.log('new FightingSchool(obj && obj.fightingschool) ' + new FightingSchool(obj && obj.fightingschool));
     // console.log('(obj && obj.techniques).map(el => new Technique(el) ' + (obj && obj.techniques).map(el => new Technique(el)));
-    console.log('(obj && obj.techniques) ' + (obj && obj.techniques));
+    // console.log('(obj && obj.techniques) ' + (obj && obj.techniques));
     if ((obj && obj.techniques) !== undefined && (obj && obj.techniques) !== null) {
       this.techniques = (obj && obj.techniques).map(el => new Technique(el));
     } else {
