@@ -46,6 +46,16 @@ import {WarriorService} from './service/warrior.service';
 import {WarriorItemComponent} from './components/warrior/warrior-item/warrior-item.component';
 import {WarriorListComponent} from './components/warrior/warrior-list/warrior-list.component';
 import {WarriorEditComponent} from './components/warrior/warrior-edit/warrior-edit.component';
+import {WarriorListPagedComponent} from './components/warrior/warrior-paged/warrior-list-paged.component';
+import {WarriorAddComponent} from './components/warrior/warrior-add/warrior-add.component';
+import {WarriorSearchComponent} from './components/warrior/warrior-search/warrior-search.component';
+import {TournamentSearchComponent} from './components/tournament/tournament-search/tournament-search.component';
+import {TournamentAddComponent} from './components/tournament/tournament-add/tournament-add.component';
+import {TournamentListPagedComponent} from './components/tournament/tournament-paged/tournament-list-paged.component';
+import {TournamentEditComponent} from './components/tournament/tournament-edit/tournament-edit.component';
+import {TournamentListComponent} from './components/tournament/tournament-list/tournament-list.component';
+import {TournamentItemComponent} from './components/tournament/tournament-item/tournament-item.component';
+import {TournamentService} from './service/tournament.service';
 
 const ROUTES: Routes = [
   // { path: '', redirectTo: 'nickname-list', pathMatch: 'full' },
@@ -54,28 +64,42 @@ const ROUTES: Routes = [
   {path: 'arena-list-paged', component: ArenaListPagedComponent},
   {path: 'arena-add', component: ArenaAddComponent},
   {path: 'arena-edit/:id', component: ArenaEditComponent},
+
   {path: 'nickname-search', component: NicknameSearchComponent},
   {path: 'nickname-list-paged', component: NicknameListPagedComponent},
   {path: 'nickname-list', component: NicknameListComponent},
   {path: 'nickname-add', component: NicknameAddComponent},
   {path: 'nickname-edit/:id', component: NicknameEditComponent},
+
   {path: 'wife-search', component: WifeSearchComponent},
   {path: 'wife-list-paged', component: WifeListPagedComponent},
   {path: 'wife-list', component: WifeListComponent},
   {path: 'wife-add', component: WifeAddComponent},
   {path: 'wife-edit/:id', component: WifeEditComponent},
+
   {path: 'fighting-school-search', component: FightingSchoolSearchComponent},
   {path: 'fighting-school-list-paged', component: FightingSchoolListPagedComponent},
   {path: 'fighting-school-list', component: FightingSchoolListComponent},
   {path: 'fighting-school-add', component: FightingSchoolAddComponent},
   {path: 'fighting-school-edit/:id', component: FightingSchoolEditComponent},
+
   {path: 'technique-search', component: TechniqueSearchComponent},
   {path: 'technique-list-paged', component: TechniqueListPagedComponent},
   {path: 'technique-list', component: TechniqueListComponent},
   {path: 'technique-add', component: TechniqueAddComponent},
   {path: 'technique-edit/:id', component: TechniqueEditComponent},
+
   {path: 'warrior-list', component: WarriorListComponent},
-  {path: 'warrior-edit/:id', component: WarriorEditComponent}
+  {path: 'warrior-edit/:id', component: WarriorEditComponent},
+  {path: 'warrior-list-paged', component: WarriorListPagedComponent},
+  {path: 'warrior-add', component: WarriorAddComponent},
+  {path: 'warrior-search', component: WarriorSearchComponent},
+
+  {path: 'tournament-list', component: TournamentListComponent},
+  {path: 'tournament-edit/:id', component: TournamentEditComponent},
+  {path: 'tournament-list-paged', component: TournamentListPagedComponent},
+  {path: 'tournament-add', component: TournamentAddComponent},
+  {path: 'tournament-search', component: TournamentSearchComponent}
 ];
 
 
@@ -88,14 +112,17 @@ const ROUTES: Routes = [
     WifeItemComponent, WifeListComponent, WifeEditComponent, WifeAddComponent, WifeListPagedComponent, WifeSearchComponent,
     FightingSchoolItemComponent, FightingSchoolListComponent, FightingSchoolEditComponent, FightingSchoolAddComponent,
     FightingSchoolListPagedComponent, FightingSchoolSearchComponent,
-    TechniqueItemComponent, TechniqueListComponent, TechniqueEditComponent, TechniqueAddComponent,
-    TechniqueListPagedComponent, TechniqueSearchComponent,
-    WarriorItemComponent, WarriorListComponent, WarriorEditComponent
+    TechniqueItemComponent, TechniqueListComponent, TechniqueEditComponent, TechniqueAddComponent, TechniqueListPagedComponent,
+    TechniqueSearchComponent,
+    WarriorItemComponent, WarriorListComponent, WarriorListPagedComponent, WarriorEditComponent, WarriorAddComponent,
+    WarriorSearchComponent,
+    TournamentItemComponent, TournamentListComponent, TournamentListPagedComponent, TournamentEditComponent, TournamentAddComponent,
+    TournamentSearchComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(ROUTES)
   ],
-  providers: [ArenaService, NicknameService, WifeService, FightingSchoolService, TechniqueService, WarriorService],
+  providers: [ArenaService, NicknameService, WifeService, FightingSchoolService, TechniqueService, WarriorService, TournamentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

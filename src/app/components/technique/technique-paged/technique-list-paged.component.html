@@ -1,7 +1,8 @@
 <div>
   size
   <input type="text" [(ngModel)]="size">
-  <app-technique-item *ngFor="let technique_item of techniquesPaged" [technique]="technique_item" (removeTechnique)="removeTechniquePaged($event)">
+  <app-technique-item *ngFor="let technique_item of techniquesPaged" [technique]="technique_item"
+                      (removeTechnique)="removeTechniquePaged($event)">
   </app-technique-item>
   page
   <input type="text" [(ngModel)]="page">

@@ -1,0 +1,17 @@
+<div>
+  <table>
+    <tr>
+      <td>
+        {{ tournament.getName() }}
+      </td>
+      <td>
+        <a [routerLink]="['/tournament-edit', tournament.getId()]" routerLinkActive="active">Edit</a>
+      </td>
+      <td>
+        <button (click)="deleteTournament(tournament.getId())">
+          Remove
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

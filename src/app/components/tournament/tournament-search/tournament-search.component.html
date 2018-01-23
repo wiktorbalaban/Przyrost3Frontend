@@ -1,0 +1,9 @@
+<div>
+  <input type="text" [(ngModel)]="searchPhrase">
+  <button (click)="searchTournament()">
+    Search
+  </button>
+  <app-tournament-item *ngFor="let tournament_item of searchedTournaments" [tournament]="tournament_item"
+                  (removeItem)="removeSearchedTournament($event)">
+  </app-tournament-item>
+</div>

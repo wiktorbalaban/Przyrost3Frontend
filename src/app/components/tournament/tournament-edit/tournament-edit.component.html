@@ -1,0 +1,59 @@
+<div>
+  <table>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>date</th>
+      <th>arena</th>
+      <th>participants</th>
+    </tr>
+    <tr>
+      <td>
+        {{tournamentToEdit?.getId()}}
+      </td>
+      <td>
+        <input type="text" value="{{tournamentToEdit?.getName()}}" [(ngModel)]="updateTournamentName">
+      </td>
+      <td>
+        <input type="date" value="{{tournamentToEdit?.getDate()}}" [(ngModel)]="updateTournamentDate">
+      </td>
+      <td>
+        <app-arena-item [arena]="tournamentToEdit?.getArena()" (removeArena)="removeArena($event)">
+        </app-arena-item>
+      </td>
+      <td>
+      <td>
+        <div *ngIf="areTeEditing == false">
+          <div *ngFor="let ts of tournamentToEdit?.getParticipants()">
+            {{ts.getName()}}
+          </div>
+          <button (click)="editParticipants()">
+            Edit
+          </button>
+        </div>
+        <div *ngIf="areTeEditing == true">
+          <div *ngFor="let ts of teToChoose; let inx = index">
+            <span *ngIf="teToChooseFlag[inx]==true">
+              <button (click)="switchTeToChooseFlag(inx)">
+              Choose
+            </button>
+              {{ts.getName()}}
+            </span>
+            <span *ngIf="teToChooseFlag[inx]==false">
+              <button (click)="switchTeToChooseFlag(inx)">
+              _Dont_
+            </button>
+              {{ts.getName()}}
+            </span>
+          </div>
+          <button (click)="confirmParticipants()">
+            Confirm
+          </button>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <button (click)="editTournament()">
+    Update
+  </button>
+</div>

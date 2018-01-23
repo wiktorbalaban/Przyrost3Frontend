@@ -1,0 +1,9 @@
+<div>
+  <input type="text" [(ngModel)]="searchPhrase">
+  <button (click)="searchWarrior()">
+    Search
+  </button>
+  <app-warrior-item *ngFor="let warrior_item of searchedWarriors" [warrior]="warrior_item"
+                  (removeItem)="removeSearchedWarrior($event)">
+  </app-warrior-item>
+</div>

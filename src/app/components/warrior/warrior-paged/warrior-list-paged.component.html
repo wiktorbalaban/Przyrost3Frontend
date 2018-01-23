@@ -1,0 +1,14 @@
+<div>
+  size
+  <input type="text" [(ngModel)]="size">
+  <app-warrior-item *ngFor="let warrior_item of warriorsPaged" [warrior]="warrior_item"
+                    (removeWarrior)="removeWarriorPaged($event)">
+  </app-warrior-item>
+  page
+  <input type="text" [(ngModel)]="page">
+  z {{totalPages}}
+  <br>
+  <button (click)="getWarriorsPaged()">
+    Go
+  </button>
+</div>

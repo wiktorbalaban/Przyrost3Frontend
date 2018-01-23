@@ -1,0 +1,5 @@
+<div>
+  <app-tournament-item *ngFor="let tournament_item of tournaments" [tournament]="tournament_item"
+                  (removeTournament)="removeTournament($event)">
+  </app-tournament-item>
+</div>

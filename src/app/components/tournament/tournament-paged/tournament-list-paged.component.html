@@ -1,0 +1,14 @@
+<div>
+  size
+  <input type="text" [(ngModel)]="size">
+  <app-tournament-item *ngFor="let tournament_item of tournamentsPaged" [tournament]="tournament_item"
+                    (removeTournament)="removeTournamentPaged($event)">
+  </app-tournament-item>
+  page
+  <input type="text" [(ngModel)]="page">
+  z {{totalPages}}
+  <br>
+  <button (click)="getTournamentsPaged()">
+    Go
+  </button>
+</div>

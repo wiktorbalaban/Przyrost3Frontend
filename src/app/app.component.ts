@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   isFightingSchoolVisible: boolean;
   isTechniqueVisible: boolean;
   isWarriorVisible: boolean;
+  isTournamentVisible: boolean;
 
   ngOnInit() {
     this.isArenaVisible = false;
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit {
     this.isFightingSchoolVisible = false;
     this.isTechniqueVisible = false;
     this.isWarriorVisible = false;
+    this.isTournamentVisible = false;
   }
 
   switchValue(isObjVisible: boolean): boolean {
