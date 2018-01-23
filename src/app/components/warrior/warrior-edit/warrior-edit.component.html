@@ -32,9 +32,20 @@
         </app-wife-item>
       </td>
       <td>
-        <app-fighting-school-item [fightingSchool]="warriorToEdit?.getFightingSchool()"
-                                  (removeFightingSchool)="removeFightingSchool($event)">
-        </app-fighting-school-item>
+        <div *ngIf="warriorToEdit?.getFightingSchool() != null">
+          {{warriorToEdit?.getFightingSchool().getName()}}
+          <button (click)="chooseAnotherFightingSchool()">
+            Choose another
+          </button>
+        </div>
+        <div *ngIf="warriorToEdit?.getFightingSchool() == null">
+          <div *ngFor="let fs of fsToChoose">
+            {{fs.getName()}}
+            <button (click)="chooseFightingSchool(fs)">
+              Choose
+            </button>
+          </div>
+        </div>
       </td>
       <td>
         <app-technique-item *ngFor="let technique_item of warriorToEdit?.getTechniques()" [technique]="technique_item"

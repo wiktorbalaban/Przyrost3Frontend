@@ -21,9 +21,21 @@ export class Warrior {
     this.power = (obj && obj.power) || 0;
     this.nickname = new Nickname(obj && obj.nickname) || null;
     this.wife = new Wife(obj && obj.wife) || null;
-    this.fightingschool = new FightingSchool(obj && obj.fightingschool) || null;
+    if ((obj && obj.fightingschool) != null) {
+      this.fightingschool = new FightingSchool(obj && obj.fightingschool);
+    } else {
+      this.fightingschool = null;
+    }
+    // console.log('this.fightingschool ' + this.fightingschool);
+    // console.log('(obj && obj.fightingschool) ' + (obj && obj.fightingschool));
+    // console.log('new FightingSchool(obj && obj.fightingschool) ' + new FightingSchool(obj && obj.fightingschool));
     // console.log('(obj && obj.techniques).map(el => new Technique(el) ' + (obj && obj.techniques).map(el => new Technique(el)));
-    this.techniques = (obj && obj.techniques).map(el => new Technique(el)) || null;
+    console.log('(obj && obj.techniques) ' + (obj && obj.techniques));
+    if ((obj && obj.techniques) !== undefined && (obj && obj.techniques) !== null) {
+      this.techniques = (obj && obj.techniques).map(el => new Technique(el));
+    } else {
+      this.techniques = null;
+    }
     // console.log('Warrior class this.techniqueslength ' + this.techniques.length);
     // console.log('Warrior class this.techniques[0].getId()' + this.techniques[0].getId());
   }
