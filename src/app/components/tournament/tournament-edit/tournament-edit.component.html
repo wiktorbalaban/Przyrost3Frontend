@@ -36,38 +36,71 @@
         </div>
       </td>
       <td>
-      <td>
         <div *ngIf="areTeEditing == false">
           <div *ngFor="let ts of tournamentToEdit?.getParticipants()">
             {{ts.getName()}}
           </div>
-          <button (click)="editParticipants()">
+          <button (click)="editParticipantsT()">
             Edit
+          </button>
+          <button (click)="editParticipantsPagedT()">
+            Edit Paged
           </button>
         </div>
         <div *ngIf="areTeEditing == true">
-          <div *ngFor="let ts of teToChoose; let inx = index">
+          <div *ngIf="isEditingPaged == false">
+            <div *ngFor="let ts of teToChoose; let inx = index">
             <span *ngIf="teToChooseFlag[inx]==true">
-              <button (click)="switchTeToChooseFlag(inx)">
+              <button (click)="switchTeToChooseFlagT(inx)">
               Choose
             </button>
               {{ts.getName()}}
             </span>
-            <span *ngIf="teToChooseFlag[inx]==false">
-              <button (click)="switchTeToChooseFlag(inx)">
+              <span *ngIf="teToChooseFlag[inx]==false">
+              <button (click)="switchTeToChooseFlagT(inx)">
               _Dont_
             </button>
               {{ts.getName()}}
             </span>
+            </div>
+            <button (click)="confirmParticipantsT()">
+              Confirm
+            </button>
           </div>
-          <button (click)="confirmParticipants()">
-            Confirm
-          </button>
+          <div *ngIf="isEditingPaged == true">
+            size
+            <input type="text" [(ngModel)]="size">
+            <div *ngFor="let ts of teToChoose; let inx2 = index">
+              ts
+              <span *ngIf="teToChooseFlag[inx2]==true">
+              <button (click)="switchTeToChooseFlagT(inx2)">
+              Choose
+            </button>
+              {{ts.getName()}}
+            </span>
+              <span *ngIf="teToChooseFlag[inx2]==false">
+              <button (click)="switchTeToChooseFlagT(inx2)">
+              _Dont_
+            </button>
+              {{ts.getName()}}
+            </span>
+            </div>
+            page
+            <input type="text" [(ngModel)]="page">
+            z {{totalPages}}
+            <br>
+            <button (click)="editParticipantsPagedT()">
+              Confirm and Go
+            </button>
+            <button (click)="stopEditPagedT()">
+              Back
+            </button>
+          </div>
         </div>
       </td>
     </tr>
   </table>
-  <button (click)="editTournament()">
+  <button (click)="editTournamentT()">
     Update
   </button>
 </div>

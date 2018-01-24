@@ -52,10 +52,10 @@
           <div *ngFor="let ts of warriorToEdit?.getTechniques()">
             {{ts.getName()}}
           </div>
-          <button (click)="editTechniques()">
+          <button (click)="editTechniquesW()">
             Edit
           </button>
-          <button (click)="editTechniquesPaged()">
+          <button (click)="editTechniquesPagedW()">
             Edit Paged
           </button>
         </div>
@@ -63,19 +63,19 @@
           <div *ngIf="isEditingPaged == false">
             <div *ngFor="let ts of teToChoose; let inx = index">
             <span *ngIf="teToChooseFlag[inx]==true">
-              <button (click)="switchTeToChooseFlag(inx)">
+              <button (click)="switchTeToChooseFlagW(inx)">
               Choose
             </button>
               {{ts.getName()}}
             </span>
               <span *ngIf="teToChooseFlag[inx]==false">
-              <button (click)="switchTeToChooseFlag(inx)">
+              <button (click)="switchTeToChooseFlagW(inx)">
               _Dont_
             </button>
               {{ts.getName()}}
             </span>
             </div>
-            <button (click)="confirmTechniques()">
+            <button (click)="confirmTechniquesW()">
               Confirm
             </button>
           </div>
@@ -85,13 +85,13 @@
             <div *ngFor="let ts of teToChoose; let inx2 = index">
               ts
             <span *ngIf="teToChooseFlag[inx2]==true">
-              <button (click)="switchTeToChooseFlag(inx2)">
+              <button (click)="switchTeToChooseFlagW(inx2)">
               Choose
             </button>
               {{ts.getName()}}
             </span>
               <span *ngIf="teToChooseFlag[inx2]==false">
-              <button (click)="switchTeToChooseFlag(inx2)">
+              <button (click)="switchTeToChooseFlagW(inx2)">
               _Dont_
             </button>
               {{ts.getName()}}
@@ -101,10 +101,10 @@
             <input type="text" [(ngModel)]="page">
             z {{totalPages}}
             <br>
-            <button (click)="editTechniquesPaged()">
+            <button (click)="editTechniquesPagedW()">
               Confirm and Go
             </button>
-            <button (click)="stopEditPaged()">
+            <button (click)="stopEditPagedW()">
               Back
             </button>
           </div>
