@@ -35,6 +35,11 @@ export class WarriorEditComponent implements OnInit {
   teToChoose: Array<Technique>;
   teToChooseFlag: Array<boolean>;
   areTeEditing: boolean;
+  isEditingPaged: boolean;
+
+  page: number;
+  size: number;
+  totalPages: number;
 
   constructor(private warriorService: WarriorService, private route: ActivatedRoute,
               private fightingSchoolService: FightingSchoolService, private techniqueService: TechniqueService) {
@@ -56,6 +61,8 @@ export class WarriorEditComponent implements OnInit {
     );
     this.getFightingSchools();
     this.areTeEditing = false;
+    this.page = 1;
+    this.size = 10;
   }
 
   editWarrior() {
@@ -88,6 +95,24 @@ export class WarriorEditComponent implements OnInit {
     });
   }
 
+  private getTechniquesPaged() {
+    console.log('page ' + (this.page - 1) + ' size ' + this.size);
+    if (this.page >= 1) {
+      this.techniqueService.getAllPaged(this.page - 1, this.size).subscribe(res => {
+        console.log(res);
+        this.totalPages = res.totalPages;
+        if (this.totalPages >= this.page) {
+          this.teToChoose = res.content.map(el => new Technique(el));
+          console.log('this.teToChoose[0].getName() ' + this.teToChoose[0].getName());
+        } else {
+          window.alert('Przekroczono limit stron');
+        }
+      });
+    } else {
+      window.alert('Numer strony musi być większy lub równy 1');
+    }
+  }
+
   chooseFightingSchool(fightingSchool: FightingSchool) {
     this.warriorToEdit.setFightingSchool(fightingSchool);
   }
@@ -97,6 +122,7 @@ export class WarriorEditComponent implements OnInit {
   }
 
   editTechniques() {
+    this.isEditingPaged = false;
     this.getTechniques();
     this.teToChooseFlag = [];
     if (this.teToChoose !== undefined) {
@@ -109,6 +135,69 @@ export class WarriorEditComponent implements OnInit {
             this.teToChooseFlag[index] = true;
           }
         }
+        this.areTeEditing = true;
+      } else {
+        window.alert('nie ma technik');
+      }
+    } else {
+      window.alert('kliknij jeszcze raz :)');
+    }
+  }
+
+  editTechniquesPaged() {
+    this.isEditingPaged = true;
+
+    if (this.teToChoose !== undefined && this.teToChoose.length > 0
+      && this.teToChooseFlag !== undefined && this.teToChooseFlag.length > 0) {
+      console.log('confirm');
+      for (const index in this.teToChoose) {
+        if (this.teToChooseFlag[index] === true) {
+          if (this.warriorToEdit.getTechniques().find(t => t.getId() === this.teToChoose[index].getId()) === undefined) {
+            this.warriorToEdit.getTechniques().push(this.teToChoose[index]);
+          } else {
+            // this.warriorToEdit.getTechniques().filter( obj => obj.getId() !== this.teToChoose[index].getId());
+          }
+        } else {
+          if (this.warriorToEdit.getTechniques().find(t => t.getId() === this.teToChoose[index].getId()) === undefined) {
+            // this.warriorToEdit.getTechniques().push(this.teToChoose[index]);
+          } else {
+            // this.warriorToEdit.getTechniques().filter(obj => obj.getId() !== this.teToChoose[index].getId());
+            // console.log('this.warriorToEdit.getTechniques().find(t => t.getId() === this.teToChoose[index].getId())..getId() ' +
+            //   this.warriorToEdit.getTechniques().find(t => t.getId() === this.teToChoose[index].getId()).getId());
+            const idToRemove = this.warriorToEdit.getTechniques().find(t => t.getId() === this.teToChoose[index].getId()).getId();
+            let i: number;
+            i = 0;
+            for (const index2 in this.teToChoose) {
+              if (this.warriorToEdit.getTechniques()[index2].getId() === idToRemove) {
+                // console.log('indexRoremove ' + i);
+                // console.log('this.warriorToEdit.getTechniques()[i].getId() ' + this.warriorToEdit.getTechniques()[i].getId());
+                this.warriorToEdit.setTechniques(this.warriorToEdit.getTechniques().slice(i + 1, 1));
+                // console.log('this.warriorToEdit.getTechniques()[i].getId() ' + this.warriorToEdit.getTechniques()[i].getId());
+                break;
+              }
+              i++;
+            }
+          }
+        }
+      }
+    }
+
+    this.getTechniquesPaged();
+
+    console.log('this.teToChoose' + this.teToChoose);
+    if (this.teToChoose !== undefined) {
+      if (this.teToChoose.length > 0) {
+        console.log('get paged');
+        this.teToChooseFlag = [];
+        for (const index in this.teToChoose) {
+          // console.log('t ' + t);
+          if (this.warriorToEdit.getTechniques().find(t => t.getId() === this.teToChoose[index].getId()) === undefined) {
+            this.teToChooseFlag[index] = false;
+          } else {
+            this.teToChooseFlag[index] = true;
+          }
+        }
+        console.log('this.teToChooseFlag[0] ' + this.teToChooseFlag[0]);
         this.areTeEditing = true;
       } else {
         window.alert('nie ma technik');
@@ -133,6 +222,10 @@ export class WarriorEditComponent implements OnInit {
       }
     }
     this.warriorToEdit.setTechniques(tmp);
+    this.areTeEditing = false;
+  }
+
+  stopEditPaged() {
     this.areTeEditing = false;
   }
 

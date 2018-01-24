@@ -55,25 +55,59 @@
           <button (click)="editTechniques()">
             Edit
           </button>
+          <button (click)="editTechniquesPaged()">
+            Edit Paged
+          </button>
         </div>
         <div *ngIf="areTeEditing == true">
-          <div *ngFor="let ts of teToChoose; let inx = index">
+          <div *ngIf="isEditingPaged == false">
+            <div *ngFor="let ts of teToChoose; let inx = index">
             <span *ngIf="teToChooseFlag[inx]==true">
               <button (click)="switchTeToChooseFlag(inx)">
               Choose
             </button>
               {{ts.getName()}}
             </span>
-            <span *ngIf="teToChooseFlag[inx]==false">
+              <span *ngIf="teToChooseFlag[inx]==false">
               <button (click)="switchTeToChooseFlag(inx)">
               _Dont_
             </button>
               {{ts.getName()}}
             </span>
+            </div>
+            <button (click)="confirmTechniques()">
+              Confirm
+            </button>
           </div>
-          <button (click)="confirmTechniques()">
-            Confirm
-          </button>
+          <div *ngIf="isEditingPaged == true">
+            size
+            <input type="text" [(ngModel)]="size">
+            <div *ngFor="let ts of teToChoose; let inx2 = index">
+              ts
+            <span *ngIf="teToChooseFlag[inx2]==true">
+              <button (click)="switchTeToChooseFlag(inx2)">
+              Choose
+            </button>
+              {{ts.getName()}}
+            </span>
+              <span *ngIf="teToChooseFlag[inx2]==false">
+              <button (click)="switchTeToChooseFlag(inx2)">
+              _Dont_
+            </button>
+              {{ts.getName()}}
+            </span>
+            </div>
+            page
+            <input type="text" [(ngModel)]="page">
+            z {{totalPages}}
+            <br>
+            <button (click)="editTechniquesPaged()">
+              Confirm and Go
+            </button>
+            <button (click)="stopEditPaged()">
+              Back
+            </button>
+          </div>
         </div>
       </td>
     </tr>
