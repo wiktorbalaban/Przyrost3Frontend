@@ -14,6 +14,7 @@ import {TechniqueService} from '../../../service/technique.service';
 import {Arena} from '../../../models/arena';
 import {Warrior} from '../../../models/warrior';
 import {WarriorService} from '../../../service/warrior.service';
+import {ArenaService} from '../../../service/arena.service';
 
 @Component({
   selector: 'app-tournament-edit',
@@ -31,12 +32,13 @@ export class TournamentEditComponent implements OnInit {
   updateTournamentArena: Arena;
   updateTournamentParticipants: Array<Warrior>;
 
+  aToChoose: Array<Arena>;
   teToChoose: Array<Warrior>;
   teToChooseFlag: Array<boolean>;
   areTeEditing: boolean;
 
   constructor(private tournamentService: TournamentService, private route: ActivatedRoute,
-               private participantsService: WarriorService) {
+              private participantsService: WarriorService, private arenaService: ArenaService) {
   }
 
   ngOnInit() {
@@ -53,11 +55,12 @@ export class TournamentEditComponent implements OnInit {
         // }
       }
     );
+    this.getArenas();
     this.areTeEditing = false;
   }
 
   editTournament() {
-    if (this.updateTournamentName !== undefined ) {
+    if (this.updateTournamentName !== undefined) {
       this.updateTournament = new Tournament(null);
       this.updateTournament.setId(this.tournamentToEdit.getId());
       this.updateTournament.setName(this.updateTournamentName);
@@ -74,6 +77,12 @@ export class TournamentEditComponent implements OnInit {
   private getParticipants() {
     this.participantsService.getAll().subscribe(res => {
       this.teToChoose = res.map(el => new Technique(el));
+    });
+  }
+
+  private getArenas() {
+    this.arenaService.getAll().subscribe(res => {
+      this.aToChoose = res.map(el => new Arena(el));
     });
   }
 
@@ -115,6 +124,14 @@ export class TournamentEditComponent implements OnInit {
     }
     this.tournamentToEdit.setParticipants(tmp);
     this.areTeEditing = false;
+  }
+
+  chooseArena(arena: Arena) {
+    this.tournamentToEdit.setArena(arena);
+  }
+
+  chooseAnotherArena() {
+    this.tournamentToEdit.setArena(null);
   }
 
 }

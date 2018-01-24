@@ -18,8 +18,22 @@
         <input type="date" value="{{tournamentToEdit?.getDate()}}" [(ngModel)]="updateTournamentDate">
       </td>
       <td>
-        <app-arena-item [arena]="tournamentToEdit?.getArena()" (removeArena)="removeArena($event)">
-        </app-arena-item>
+        <!--<app-arena-item [arena]="tournamentToEdit?.getArena()" (removeArena)="removeArena($event)">-->
+        <!--</app-arena-item>-->
+        <div *ngIf="tournamentToEdit?.getArena() != null">
+          {{tournamentToEdit?.getArena().getName()}}
+          <button (click)="chooseAnotherArena()">
+            Choose another
+          </button>
+        </div>
+        <div *ngIf="tournamentToEdit?.getArena() == null">
+          <div *ngFor="let a of aToChoose">
+            {{a.getName()}}
+            <button (click)="chooseArena(a)">
+              Choose
+            </button>
+          </div>
+        </div>
       </td>
       <td>
       <td>
