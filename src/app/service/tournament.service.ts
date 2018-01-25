@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Tournament} from '../models/tournament';
+import {Warrior} from '../models/warrior';
 
 const apiUrl: String = 'http://localhost:8080/api';
 
@@ -44,6 +45,10 @@ export class TournamentService {
     return this.http.delete(`${apiUrl}/tournament/${id}`).subscribe(res => {
       console.log(res);
     });
+  }
+
+  getWinner(id: number): Observable<any> {
+    return this.http.get(`${apiUrl}/tournaments/getWinner?id=${id}`);
   }
 
 }

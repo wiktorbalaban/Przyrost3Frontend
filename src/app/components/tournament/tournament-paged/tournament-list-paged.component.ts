@@ -26,7 +26,7 @@ export class TournamentListPagedComponent implements OnInit {
     console.log('page ' + (this.page - 1) + ' size ' + this.size);
     if (this.page >= 1) {
       this.tournamentServicePaged.getAllPaged(this.page - 1, this.size).subscribe(res => {
-        console.log(res);
+        // console.log(res);
         this.totalPages = res.totalPages;
         if (this.totalPages >= this.page) {
           this.tournamentsPaged = res.content.map(el => new Tournament(el));
@@ -43,5 +43,6 @@ export class TournamentListPagedComponent implements OnInit {
     this.tournamentsPaged = this.tournamentsPaged.filter(el => el.getId() !== id);
     console.log(id, 'remove tournament');
   }
+
 
 }

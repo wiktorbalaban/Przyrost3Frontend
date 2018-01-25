@@ -11,7 +11,18 @@
         <button (click)="deleteTournament(tournament.getId())">
           Remove
         </button>
+        <button *ngIf="!isWinnerShown" (click)="showWinner()">
+          Show winner
+        </button>
+        <button *ngIf="isWinnerShown" (click)="hideWinner()">
+          Hide winner
+        </button>
       </td>
-    </tr>
+      <td>
+        <app-warrior-item *ngIf="isWinnerShown" [warrior]="winner"
+                          (removeTournament)="removeWarrior($event)">
+        </app-warrior-item>
+      </td>
+      </tr>
   </table>
 </div>
