@@ -1,6 +1,18 @@
-.menu-item{
+.menu-item {
   display: inline-block;
+  padding: 5px 18px;
+  background-color: lightgrey;
 }
-.dropdown{
 
+.dropdown a {
+  background-color: lightgrey;
+  text-decoration: none;
+}
+
+.dropdown {
+  padding: 10px;
+}
+
+.header {
+  background-color: grey;
 }
